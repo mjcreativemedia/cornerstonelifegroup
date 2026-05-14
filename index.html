@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Expense Coverage Options | Cornerstone Life Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="funnel-page active" data-page="1" aria-label="Opt-in page">
+        <div class="optin-card">
+          <section class="optin-left">
+            <div class="logo-row">
+              <img
+                class="logo-emblem"
+                src="Assets/csg-logo-emblem.PNG"
+                alt="Cornerstone Life Group"
+              />
+              <div>
+                <strong>Cornerstone Life Group</strong>
+                <span>Final Expense Solutions</span>
+              </div>
+            </div>
+
+            <h1>Check If You Qualify for Final Expense Coverage in 60 Seconds</h1>
+            <p class="subcopy">
+              No obligation. See what options may be available in your state.
+            </p>
+
+            <div class="video-frame">
+              <img src="Assets/elderly-couple.png" alt="Smiling senior couple" />
+              <button type="button" class="play-button" aria-label="Play intro video">
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="video-message" id="video-message" aria-live="polite">
+                Video coming soon
+              </div>
+            </div>
+
+            <ul class="check-list">
+              <li>No medical exam options may be available</li>
+              <li>Plans for ages 50-85</li>
+              <li>Affordable monthly plans</li>
+              <li>Help protect your family</li>
+              <li>Simple, private and secure</li>
+            </ul>
+          </section>
+
+          <section class="optin-form-panel">
+            <h2>Get Your Free Options</h2>
+            <p>It only takes 60 seconds</p>
+
+            <form id="lead-form">
+              <label>
+                First Name *
+                <input name="firstName" autocomplete="given-name" required />
+              </label>
+              <label>
+                Last Name *
+                <input name="lastName" autocomplete="family-name" required />
+              </label>
+              <label>
+                Phone Number *
+                <input name="phone" type="tel" autocomplete="tel" required />
+              </label>
+              <label>
+                Date of Birth *
+                <input name="dob" type="date" required />
+              </label>
+              <label>
+                State *
+                <select name="state" required>
+                  <option value="">Select State</option>
+                  <option>Texas</option>
+                  <option>California</option>
+                  <option>Florida</option>
+                  <option>Arizona</option>
+                  <option>New Mexico</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                Smoker or Non-Smoker *
+                <select name="smoker" required>
+                  <option value="">Select One</option>
+                  <option>Non-smoker</option>
+                  <option>Smoker</option>
+                </select>
+              </label>
+              <label>
+                Burial or Cremation *
+                <select name="preference" required>
+                  <option value="">Select One</option>
+                  <option>Burial</option>
+                  <option>Cremation</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+
+              <button class="primary-button" type="submit">Get My Options Now</button>
+              <p class="consent-note">
+                By clicking Get My Options Now, you agree that Cornerstone Life
+                Group and/or Carlos Vasquez may call or text you at the number
+                provided about final expense/life insurance options. Consent is
+                not required to purchase. Message/data rates may apply. Reply
+                STOP to opt out.
+              </p>
+              <p class="security-note">
+                Your information is handled securely and used to review coverage
+                options.
+              </p>
+            </form>
+          </section>
+        </div>
+
+        <div class="trust-strip">
+          <span>100% Secure</span>
+          <span>No Obligation</span>
+          <span>Private &amp; Confidential</span>
+        </div>
+      </section>
+
+      <section class="funnel-page" data-page="2" aria-label="Thank you page">
+        <div class="thankyou-card">
+          <header class="navy-header">
+            <span class="circle-check" aria-hidden="true">✓</span>
+            <h1>Thank You!</h1>
+            <p>Your Request Has Been Received</p>
+          </header>
+
+          <div class="advisor-body">
+            <img src="Assets/carlos-portrait-main.PNG" alt="Carlos Vasquez" />
+            <h2>Hi, I’m Carlos Vasquez</h2>
+            <p>I personally review every request.</p>
+
+            <div class="soft-callout">
+              I will be reaching out to you shortly by phone or text to go over
+              your coverage options.
+            </div>
+
+            <div class="phone-lite">
+              <span>Call or text me directly</span>
+              <strong>312-287-4144</strong>
+            </div>
+
+            <form id="preference-form" class="preference-form">
+              <fieldset>
+                <legend>How would you prefer I follow up?</legend>
+                <div class="choice-grid two">
+                  <label><input type="radio" name="contactPreference" value="call" required />Call me</label>
+                  <label><input type="radio" name="contactPreference" value="text" />Text me</label>
+                </div>
+              </fieldset>
+            </form>
+
+            <div class="next-box">
+              <h3>Here’s What Happens Next:</h3>
+              <ul class="check-list compact">
+                <li>I’ll review your information</li>
+                <li>I’ll find more accurate options for you</li>
+                <li>I’ll follow up the way you prefer</li>
+              </ul>
+            </div>
+
+            <button class="primary-button" type="button" id="continue-to-questions">
+              Answer A Few Quick Questions
+            </button>
+          </div>
+
+          <footer>
+            Your information is handled securely and used to review coverage options.
+          </footer>
+        </div>
+      </section>
+
+      <section class="funnel-page" data-page="3" aria-label="Qualifying questions page">
+        <div class="questions-card">
+          <h1>A Few Quick Questions</h1>
+          <p>So I Can Review The Right Options For You</p>
+          <div class="progress-mini"><span></span></div>
+
+          <form id="qualifying-form">
+            <button class="back-link" type="button" data-back="2">
+              Back
+            </button>
+
+            <fieldset>
+              <legend>1. What is your age range?</legend>
+              <div class="choice-grid four">
+                <label><input type="radio" name="ageRange" value="50-60" required />50-60</label>
+                <label><input type="radio" name="ageRange" value="61-70" />61-70</label>
+                <label><input type="radio" name="ageRange" value="71-80" />71-80</label>
+                <label><input type="radio" name="ageRange" value="81-85" />81-85</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. Do you currently have any life insurance or burial coverage?</legend>
+              <div class="choice-grid two">
+                <label><input type="radio" name="existingCoverage" value="Yes" required />Yes</label>
+                <label><input type="radio" name="existingCoverage" value="No" />No</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>3. What best describes your goal?</legend>
+              <div class="choice-grid two">
+                <label><input type="radio" name="goal" value="Cover funeral costs" required />Cover funeral costs</label>
+                <label><input type="radio" name="goal" value="Leave money for my family" />Leave money for my family</label>
+                <label><input type="radio" name="goal" value="Replace lost income" />Replace lost income</label>
+                <label><input type="radio" name="goal" value="Just exploring options" />Just exploring options</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>4. Who would you want this coverage to protect?</legend>
+              <div class="choice-grid two">
+                <label><input type="radio" name="beneficiaryIntent" value="Spouse" required />Spouse</label>
+                <label><input type="radio" name="beneficiaryIntent" value="Children" />Children</label>
+                <label><input type="radio" name="beneficiaryIntent" value="Family member" />Family member</label>
+                <label><input type="radio" name="beneficiaryIntent" value="Other loved one" />Other loved one</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>5. How soon are you looking to secure coverage?</legend>
+              <div class="choice-grid three">
+                <label><input type="radio" name="timeframe" value="Immediately" required />Immediately</label>
+                <label><input type="radio" name="timeframe" value="Within 30 days" />Within 30 days</label>
+                <label><input type="radio" name="timeframe" value="Just researching" />Just researching</label>
+              </div>
+            </fieldset>
+
+            <button class="primary-button" type="submit">Continue</button>
+            <p class="submission-error" id="submission-error" role="alert"></p>
+            <p class="security-note dark">Your answers are confidential.</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="funnel-page" data-page="4" aria-label="Final thank you page">
+        <div class="final-card">
+          <header class="navy-header">
+            <span class="success-badge" aria-hidden="true">✓</span>
+            <h1>You’re All Set!</h1>
+            <p>Thank you for your time.</p>
+          </header>
+
+          <div class="final-body">
+            <img
+              class="final-advisor-photo"
+              src="Assets/carlos-portrait-main.PNG"
+              alt="Carlos Vasquez"
+            />
+
+            <div class="callout-row">
+              <span aria-hidden="true">☎</span>
+              <p id="final-followup-copy">
+                I will be calling or texting you shortly to go over your coverage options.
+              </p>
+            </div>
+
+            <h2>In The Meantime...</h2>
+            <ul class="icon-list">
+              <li>No obligation to enroll</li>
+              <li>We are here to help you find the right coverage for your needs</li>
+              <li>Our goal is to protect you and your loved ones</li>
+            </ul>
+
+            <div class="phone-panel">
+              <p>Have Questions Now?</p>
+              <span>Call or Text Me Directly</span>
+              <strong>312-287-4144</strong>
+              <a href="tel:3122874144">Call or Text Me Now</a>
+            </div>
+
+            <button class="back-link final-back" type="button" data-back="3">
+              Back
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <form
+        name="final-expense-lead"
+        class="netlify-hidden-form"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="form-name" value="final-expense-lead" />
+        <input type="hidden" name="subject" value="New Final Expense Lead - %{submissionId}" />
+        <input type="text" name="bot-field" />
+        <input type="text" name="firstName" />
+        <input type="text" name="lastName" />
+        <input type="tel" name="phone" />
+        <input type="text" name="dob" />
+        <input type="text" name="state" />
+        <input type="text" name="smoker" />
+        <input type="text" name="preference" />
+        <input type="text" name="contactPreference" />
+        <input type="text" name="ageRange" />
+        <input type="text" name="existingCoverage" />
+        <input type="text" name="goal" />
+        <input type="text" name="beneficiaryIntent" />
+        <input type="text" name="timeframe" />
+        <input type="text" name="utm_source" />
+        <input type="text" name="utm_medium" />
+        <input type="text" name="utm_campaign" />
+        <input type="text" name="utm_content" />
+        <input type="text" name="utm_term" />
+        <input type="text" name="landing_url" />
+        <input type="text" name="submitted_at" />
+      </form>
+
+      <footer class="site-footer" aria-label="Site information">
+        <nav>
+          <button type="button" data-modal="about">About</button>
+          <button type="button" data-modal="privacy">Privacy</button>
+          <button type="button" data-modal="terms">Terms &amp; Consent</button>
+        </nav>
+        <p>© 2026 Cornerstone Life Group</p>
+      </footer>
+    </main>
+
+    <div class="legal-modal" id="legal-modal" aria-hidden="true">
+      <div class="legal-backdrop" data-close-modal></div>
+      <section
+        class="legal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="legal-modal-title"
+      >
+        <header>
+          <h2 id="legal-modal-title">Legal Information</h2>
+          <button type="button" class="modal-close" data-close-modal aria-label="Close modal">
+            ×
+          </button>
+        </header>
+        <div class="legal-content" id="legal-modal-content"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
