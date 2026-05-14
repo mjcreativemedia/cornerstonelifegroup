@@ -93,11 +93,22 @@ function setSubmissionError(message) {
   submissionError.classList.toggle("visible", Boolean(message));
 }
 
+function buildSubmissionSubject() {
+  const leadName = [prototypeLead.firstName, prototypeLead.lastName]
+    .filter(Boolean)
+    .join(" ")
+    .trim();
+
+  return leadName
+    ? `New Final Expense Lead - ${leadName}`
+    : "New Final Expense Lead";
+}
+
 function buildLeadPayload() {
   return {
     "form-name": "final-expense-lead",
     "bot-field": "",
-    subject: "New Final Expense Lead - %{submissionId}",
+    subject: buildSubmissionSubject(),
     ...prototypeLead,
     ...trackingFields,
     submitted_at: new Date().toISOString(),
