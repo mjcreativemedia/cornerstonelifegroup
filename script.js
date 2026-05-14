@@ -7,12 +7,12 @@ const qualifyingSubmitButton = qualifyingForm.querySelector(".primary-button");
 const submissionError = document.querySelector("#submission-error");
 const finalFollowupCopy = document.querySelector("#final-followup-copy");
 const playButton = document.querySelector(".play-button");
-const videoMessage = document.querySelector("#video-message");
+const videoModal = document.querySelector("#video-modal");
+const introVideo = document.querySelector("#intro-video");
 const legalModal = document.querySelector("#legal-modal");
 const legalModalTitle = document.querySelector("#legal-modal-title");
 const legalModalContent = document.querySelector("#legal-modal-content");
 const prototypeLead = {};
-let videoMessageTimer;
 const trackingFields = getTrackingFields();
 
 const modalContent = {
@@ -173,6 +173,20 @@ function closeModal() {
   document.body.classList.remove("modal-open");
 }
 
+function openVideoModal() {
+  introVideo.src = introVideo.dataset.src;
+  videoModal.classList.add("open");
+  videoModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeVideoModal() {
+  videoModal.classList.remove("open");
+  videoModal.setAttribute("aria-hidden", "true");
+  introVideo.src = "";
+  document.body.classList.remove("modal-open");
+}
+
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
   Object.assign(prototypeLead, collectFormData(leadForm));
@@ -223,13 +237,7 @@ document.querySelectorAll("[data-back]").forEach((button) => {
   });
 });
 
-playButton.addEventListener("click", () => {
-  videoMessage.classList.add("visible");
-  clearTimeout(videoMessageTimer);
-  videoMessageTimer = setTimeout(() => {
-    videoMessage.classList.remove("visible");
-  }, 2200);
-});
+playButton.addEventListener("click", openVideoModal);
 
 document.querySelectorAll("[data-modal]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -241,8 +249,16 @@ document.querySelectorAll("[data-close-modal]").forEach((element) => {
   element.addEventListener("click", closeModal);
 });
 
+document.querySelectorAll("[data-close-video-modal]").forEach((element) => {
+  element.addEventListener("click", closeVideoModal);
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && legalModal.classList.contains("open")) {
     closeModal();
+  }
+
+  if (event.key === "Escape" && videoModal.classList.contains("open")) {
+    closeVideoModal();
   }
 });

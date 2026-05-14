@@ -61,9 +61,6 @@
               <button type="button" class="play-button" aria-label="Play intro video">
                 <span aria-hidden="true"></span>
               </button>
-              <div class="video-message" id="video-message" aria-live="polite">
-                Video coming soon
-              </div>
             </div>
 
             <ul class="check-list">
@@ -364,6 +361,37 @@
           </button>
         </header>
         <div class="legal-content" id="legal-modal-content"></div>
+      </section>
+    </div>
+
+    <div class="video-modal" id="video-modal" aria-hidden="true">
+      <div class="video-backdrop" data-close-video-modal></div>
+      <section
+        class="video-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="video-modal-title"
+      >
+        <header>
+          <h2 id="video-modal-title">Final Expense Coverage Overview</h2>
+          <button
+            type="button"
+            class="modal-close"
+            data-close-video-modal
+            aria-label="Close video"
+          >
+            ×
+          </button>
+        </header>
+        <div class="video-embed">
+          <iframe
+            id="intro-video"
+            title="Final Expense Coverage Overview"
+            data-src="https://www.youtube-nocookie.com/embed/kD0yQvTecJE?autoplay=1&rel=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </section>
     </div>
 
