@@ -727,10 +727,6 @@ legend {
   text-transform: uppercase;
 }
 
-.final-back {
-  margin-top: 16px;
-}
-
 .site-footer {
   display: grid;
   justify-items: center;
