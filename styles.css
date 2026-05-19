@@ -103,7 +103,7 @@ body.modal-open {
   justify-content: space-between;
   gap: 18px;
   width: min(100%, 1180px);
-  margin-bottom: 10px;
+  margin-bottom: 26px;
 }
 
 .funnel-brand {
@@ -164,6 +164,7 @@ body.modal-open {
 .header-call strong {
   font-size: 1.34rem;
   line-height: 1.05;
+  white-space: nowrap;
 }
 
 h1,
@@ -780,7 +781,7 @@ legend {
   align-items: start;
   gap: 34px;
   width: min(100%, 1180px);
-  margin-top: 20px;
+  margin-top: 44px;
   padding: 24px 0 12px;
   border-top: 1px solid rgba(7, 24, 50, 0.12);
   color: rgba(7, 24, 50, 0.62);
@@ -858,6 +859,7 @@ legend {
 
 .site-footer a,
 .site-footer button {
+  justify-self: start;
   border: 0;
   padding: 0;
   color: var(--navy);
@@ -865,6 +867,7 @@ legend {
   font-size: 0.76rem;
   font-weight: 900;
   line-height: 1.25;
+  text-align: left;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
@@ -1399,7 +1402,7 @@ legend {
     top: 0;
     z-index: 5;
     width: calc(100% + 20px);
-    margin: -10px -10px 10px;
+    margin: -10px -10px 22px;
     padding: 10px;
     border-bottom: 1px solid rgba(8, 39, 91, 0.1);
     background: rgba(255, 255, 255, 0.96);
@@ -1512,13 +1515,51 @@ legend {
     gap: 7px;
   }
 
+  .funnel-brand strong {
+    font-size: 0.76rem;
+  }
+
   .logo-emblem {
     width: 31px;
     height: 31px;
   }
 
+  .header-call {
+    padding: 10px 11px;
+  }
+
+  .header-call strong {
+    font-size: 0.94rem;
+  }
+
+  .optin-copy {
+    align-self: start;
+  }
+
   .optin-copy h1 {
-    font-size: 2.05rem;
+    font-size: 1.88rem;
+    line-height: 1.04;
+  }
+
+  .subcopy {
+    margin-top: 10px;
+    font-size: 0.98rem;
+  }
+
+  .optin-form-panel {
+    padding: 18px;
+  }
+
+  .optin-form-panel h2 {
+    font-size: 1.22rem;
+  }
+
+  .optin-form-panel > p {
+    margin-bottom: 12px;
+  }
+
+  form {
+    gap: 9px;
   }
 
   .video-frame {
