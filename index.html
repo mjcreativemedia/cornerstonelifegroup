@@ -103,26 +103,37 @@
   </head>
   <body>
     <main class="page-shell">
+      <header class="funnel-header" aria-label="Cornerstone Life Group header">
+        <a class="funnel-brand" href="/" aria-label="Cornerstone Life Group home">
+          <img
+            class="logo-emblem"
+            src="Assets/csg-logo-emblem.PNG"
+            alt=""
+            aria-hidden="true"
+          />
+          <span>
+            <strong>Cornerstone Life Group</strong>
+            <em>Final Expense Solutions</em>
+          </span>
+        </a>
+
+        <nav class="funnel-nav" aria-label="Primary">
+          <a href="tel:3122874144" class="header-call">
+            <strong>312-287-4144</strong>
+          </a>
+        </nav>
+      </header>
+
       <section class="funnel-page active" data-page="1" aria-label="Opt-in page">
         <div class="optin-card">
-          <section class="optin-left">
-            <div class="logo-row">
-              <img
-                class="logo-emblem"
-                src="Assets/csg-logo-emblem.PNG"
-                alt="Cornerstone Life Group"
-              />
-              <div>
-                <strong>Cornerstone Life Group</strong>
-                <span>Final Expense Solutions</span>
-              </div>
-            </div>
-
+          <section class="optin-copy">
             <h1>Check If You Qualify for Final Expense Coverage in 60 Seconds</h1>
             <p class="subcopy">
               No obligation. See what options may be available in your state.
             </p>
+          </section>
 
+          <section class="optin-media" aria-label="Final expense coverage overview">
             <div class="video-frame">
               <img src="Assets/elderly-couple.png" alt="Smiling senior couple" />
               <button type="button" class="play-button" aria-label="Play intro video">
@@ -190,9 +201,9 @@
                 </select>
               </label>
 
-              <button class="primary-button" type="submit">Get My Options Now</button>
+              <button class="primary-button" type="submit">See My Options</button>
               <p class="consent-note">
-                By clicking Get My Options Now, you agree that Cornerstone Life
+                By clicking See My Options, you agree that Cornerstone Life
                 Group and/or Carlos Vasquez may call or text you at the number
                 provided about final expense/life insurance options. Consent is
                 not required to purchase. Message/data rates may apply. Reply
@@ -409,7 +420,18 @@
 
       <footer class="site-footer" aria-label="Site information">
         <div class="footer-brand">
-          <strong>Cornerstone Life Group</strong>
+          <a class="footer-brand-link" href="/" aria-label="Cornerstone Life Group home">
+            <img
+              class="logo-emblem"
+              src="Assets/csg-logo-emblem.PNG"
+              alt=""
+              aria-hidden="true"
+            />
+            <span>
+              <strong>Cornerstone Life Group</strong>
+              <em>Final Expense Solutions</em>
+            </span>
+          </a>
           <p>© 2026 Cornerstone Life Group</p>
         </div>
         <div class="footer-link-groups">
@@ -436,6 +458,12 @@
               <button type="button" data-modal="about">About</button>
               <button type="button" data-modal="privacy">Privacy</button>
               <button type="button" data-modal="terms">Terms &amp; Consent</button>
+            </div>
+          </nav>
+          <nav aria-label="Contact information">
+            <h2>Contact</h2>
+            <div>
+              <a href="tel:3122874144">312-287-4144</a>
             </div>
           </nav>
         </div>

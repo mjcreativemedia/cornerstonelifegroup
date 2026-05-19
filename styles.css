@@ -46,12 +46,12 @@ body.modal-open {
   min-height: 100vh;
   align-content: center;
   justify-items: center;
-  padding: 18px;
+  padding: 12px;
 }
 
 .funnel-page {
   display: none;
-  width: min(100%, 930px);
+  width: min(100%, 1180px);
 }
 
 .funnel-page.active {
@@ -71,45 +71,99 @@ body.modal-open {
 
 .optin-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 385px;
-  gap: 16px;
-  padding: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 430px);
+  grid-template-areas:
+    "copy form"
+    "media form";
+  gap: 18px 26px;
+  padding: 20px;
 }
 
-.optin-left {
+.optin-copy,
+.optin-media {
   min-width: 0;
 }
 
-.logo-row {
+.optin-copy {
+  grid-area: copy;
+  align-self: end;
+}
+
+.optin-media {
+  grid-area: media;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(190px, 0.38fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.funnel-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(100%, 1180px);
+  margin-bottom: 10px;
+}
+
+.funnel-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--navy);
+  text-decoration: none;
 }
 
-.logo-emblem {
-  width: 28px;
-  height: 28px;
-  border-radius: 5px;
-  object-fit: contain;
-}
-
-.logo-row div {
+.funnel-brand span {
   display: grid;
   gap: 1px;
 }
 
-.logo-row strong {
-  font-size: 0.83rem;
+.funnel-brand strong {
+  font-size: 0.94rem;
   font-weight: 900;
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
-.logo-row span:not(.shield-mark) {
-  font-size: 0.65rem;
-  font-weight: 700;
+.funnel-brand em {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.1;
   text-transform: uppercase;
+}
+
+.funnel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.logo-emblem {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.header-call {
+  display: block;
+  min-width: 200px;
+  border-radius: 7px;
+  padding: 12px 18px;
+  color: var(--white);
+  background: var(--green);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(16, 130, 50, 0.16);
+}
+
+.header-call strong {
+  font-size: 1.34rem;
+  line-height: 1.05;
 }
 
 h1,
@@ -119,30 +173,29 @@ p {
   margin: 0;
 }
 
-.optin-left h1 {
-  max-width: 520px;
+.optin-copy h1 {
+  max-width: 660px;
   color: var(--navy);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.04;
+  font-size: clamp(2.18rem, 4.1vw, 4rem);
+  line-height: 1.01;
   letter-spacing: 0;
 }
 
 .subcopy {
-  max-width: 520px;
+  max-width: 620px;
   margin-top: 12px;
   color: #17233a;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.45;
 }
 
 .video-frame {
   position: relative;
   overflow: hidden;
-  width: min(100%, 520px);
-  margin-top: 16px;
+  width: 100%;
   border-radius: 5px;
   background: #dce4e7;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
 }
 
 .video-frame img {
@@ -175,8 +228,8 @@ p {
 
 .check-list {
   display: grid;
-  gap: 8px;
-  margin: 14px 0 0;
+  gap: 9px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -206,8 +259,9 @@ p {
 }
 
 .optin-form-panel {
+  grid-area: form;
   align-self: start;
-  padding: 20px;
+  padding: 22px;
   border-radius: 7px;
   color: var(--white);
   background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
@@ -215,7 +269,7 @@ p {
 
 .optin-form-panel h2 {
   color: var(--white);
-  font-size: 1.22rem;
+  font-size: 1.35rem;
   text-align: center;
 }
 
@@ -229,14 +283,25 @@ p {
 
 form {
   display: grid;
-  gap: 9px;
+  gap: 10px;
+}
+
+.optin-form-panel form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.optin-form-panel label:nth-of-type(7),
+.optin-form-panel .primary-button,
+.optin-form-panel .consent-note,
+.optin-form-panel .security-note {
+  grid-column: 1 / -1;
 }
 
 label {
   display: grid;
-  gap: 5px;
+  gap: 6px;
   color: inherit;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 800;
 }
 
@@ -247,7 +312,7 @@ label span {
 input,
 select {
   width: 100%;
-  min-height: 37px;
+  min-height: 42px;
   border: 1px solid rgba(8, 39, 91, 0.22);
   border-radius: 5px;
   color: var(--ink);
@@ -263,7 +328,7 @@ select:focus {
 }
 
 .primary-button {
-  min-height: 47px;
+  min-height: 50px;
   border: 0;
   border-radius: 5px;
   color: var(--white);
@@ -303,7 +368,7 @@ select:focus {
 }
 
 .trust-strip span {
-  padding: 14px 10px;
+  padding: 12px 10px;
   color: var(--navy);
   font-size: 0.75rem;
   font-weight: 900;
@@ -710,29 +775,53 @@ legend {
 }
 
 .site-footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
   align-items: start;
-  justify-content: space-between;
-  gap: 28px;
-  width: min(100%, 930px);
+  gap: 34px;
+  width: min(100%, 1180px);
   margin-top: 20px;
   padding: 24px 0 12px;
   border-top: 1px solid rgba(7, 24, 50, 0.12);
   color: rgba(7, 24, 50, 0.62);
   font-size: 0.75rem;
+  text-align: left;
 }
 
 .footer-brand {
   display: grid;
-  gap: 6px;
-  min-width: 190px;
+  gap: 10px;
 }
 
-.footer-brand strong {
+.footer-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--navy);
-  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.footer-brand-link span {
+  display: grid;
+  gap: 1px;
+}
+
+.footer-brand strong,
+.footer-brand-link strong {
+  color: var(--navy);
+  font-size: 0.92rem;
   font-weight: 900;
   line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.footer-brand-link em {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .footer-brand p {
@@ -741,7 +830,7 @@ legend {
 
 .footer-link-groups {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(220px, 1fr) minmax(120px, 0.45fr) minmax(120px, 0.45fr);
   gap: 28px;
   text-align: left;
 }
@@ -749,7 +838,7 @@ legend {
 .site-footer nav {
   display: grid;
   align-content: start;
-  gap: 10px;
+  gap: 11px;
 }
 
 .site-footer h2 {
@@ -763,9 +852,8 @@ legend {
 }
 
 .site-footer nav div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  gap: 9px;
 }
 
 .site-footer a,
@@ -789,28 +877,19 @@ legend {
 
 @media (max-width: 820px) {
   .site-footer {
+    grid-template-columns: 1fr;
     display: grid;
-    justify-items: center;
-    text-align: center;
+    gap: 22px;
+    text-align: left;
   }
 
   .footer-brand {
-    justify-items: center;
+    justify-items: start;
   }
 
   .footer-link-groups {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
-    text-align: center;
-  }
-
-  .site-footer nav {
-    justify-items: center;
-  }
-
-  .site-footer nav div {
-    justify-content: center;
   }
 }
 
@@ -1308,18 +1387,80 @@ legend {
   border: 0;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 980px) {
   .page-shell {
+    align-content: start;
     align-items: start;
     padding: 10px;
   }
 
+  .funnel-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    width: calc(100% + 20px);
+    margin: -10px -10px 10px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(8, 39, 91, 0.1);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .funnel-brand strong {
+    font-size: 0.82rem;
+  }
+
+  .funnel-brand em {
+    display: none;
+  }
+
+  .funnel-nav {
+    gap: 0;
+  }
+
+  .header-call {
+    min-width: 0;
+    padding: 10px 12px;
+  }
+
+  .header-call strong {
+    font-size: 1rem;
+  }
+
   .optin-card {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "form"
+      "media";
+    gap: 16px;
   }
 
   .optin-form-panel {
     align-self: stretch;
+  }
+
+  .optin-media {
+    display: block;
+  }
+
+  .optin-media .check-list {
+    margin-top: 13px;
+  }
+
+  .optin-form-panel form {
+    grid-template-columns: 1fr;
+  }
+
+  .optin-form-panel label:nth-of-type(7),
+  .optin-form-panel .primary-button,
+  .optin-form-panel .consent-note,
+  .optin-form-panel .security-note {
+    grid-column: auto;
+  }
+
+  .check-list {
+    grid-template-columns: 1fr;
   }
 
   .resource-page .page-shell {
@@ -1357,13 +1498,31 @@ legend {
 }
 
 @media (max-width: 560px) {
+  .site-footer,
+  .footer-link-groups {
+    grid-template-columns: 1fr;
+  }
+
   .optin-card,
   .questions-card {
     padding: 14px;
   }
 
-  .optin-left h1 {
+  .funnel-brand {
+    gap: 7px;
+  }
+
+  .logo-emblem {
+    width: 31px;
+    height: 31px;
+  }
+
+  .optin-copy h1 {
     font-size: 2.05rem;
+  }
+
+  .video-frame {
+    aspect-ratio: 16 / 10;
   }
 
   .choice-grid.four,
