@@ -1,2 +1,20 @@
 [build]
   publish = "."
+
+[[redirects]]
+  from = "http://www.mycornerstoneplan.com/*"
+  to = "https://mycornerstoneplan.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.mycornerstoneplan.com/*"
+  to = "https://mycornerstoneplan.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://mycornerstoneplan.com/*"
+  to = "https://mycornerstoneplan.com/:splat"
+  status = 301
+  force = true
