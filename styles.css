@@ -1,16 +1,16 @@
 :root {
-  --navy: #08275b;
-  --navy-dark: #041a40;
-  --blue: #11438f;
-  --green: #108232;
-  --green-dark: #0b6e28;
-  --gold: #cda448;
-  --ink: #071832;
-  --muted: #4d5c70;
-  --line: #d8e0ea;
-  --soft: #f7f3eb;
+  --navy: #043726;
+  --navy-dark: #01281c;
+  --blue: #0b4f37;
+  --green: #0f6f38;
+  --green-dark: #084d2a;
+  --gold: #c79a3a;
+  --ink: #06261d;
+  --muted: #56645d;
+  --line: #d8ded8;
+  --soft: #f8f2e6;
   --white: #fff;
-  --shadow: 0 18px 45px rgba(7, 24, 50, 0.16);
+  --shadow: 0 18px 45px rgba(6, 38, 29, 0.16);
 }
 
 * {
@@ -23,8 +23,8 @@ body {
   color: var(--ink);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(205, 164, 72, 0.2), transparent 32rem),
-    linear-gradient(135deg, #fffaf1 0%, #f2f6fa 100%);
+    radial-gradient(circle at top left, rgba(199, 154, 58, 0.22), transparent 32rem),
+    linear-gradient(135deg, #fff9ed 0%, #f3f5ef 100%);
 }
 
 button,
