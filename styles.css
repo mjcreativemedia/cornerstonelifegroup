@@ -71,7 +71,7 @@ body.modal-open {
 
 .optin-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, 430px);
+  grid-template-columns: minmax(0, 1fr) minmax(410px, 455px);
   grid-template-areas:
     "copy form"
     "media form";
@@ -150,15 +150,23 @@ body.modal-open {
 }
 
 .header-call {
-  display: block;
-  min-width: 200px;
+  display: grid;
+  min-width: 248px;
+  gap: 2px;
   border-radius: 7px;
-  padding: 12px 18px;
+  padding: 9px 18px;
   color: var(--white);
   background: var(--green);
   text-align: center;
   text-decoration: none;
   box-shadow: 0 10px 20px rgba(16, 130, 50, 0.16);
+}
+
+.header-call span {
+  font-size: 0.65rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .header-call strong {
@@ -177,8 +185,8 @@ p {
 .optin-copy h1 {
   max-width: 660px;
   color: var(--navy);
-  font-size: clamp(2.18rem, 4.1vw, 4rem);
-  line-height: 1.01;
+  font-size: clamp(2rem, 3.55vw, 3.45rem);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
@@ -196,7 +204,7 @@ p {
   width: 100%;
   border-radius: 5px;
   background: #dce4e7;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10.5;
 }
 
 .video-frame img {
@@ -243,6 +251,10 @@ p {
   line-height: 1.35;
 }
 
+.check-list strong {
+  font-weight: 900;
+}
+
 .check-list li::before {
   position: absolute;
   left: 0;
@@ -262,7 +274,7 @@ p {
 .optin-form-panel {
   grid-area: form;
   align-self: start;
-  padding: 22px;
+  padding: 24px;
   border-radius: 7px;
   color: var(--white);
   background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
@@ -270,7 +282,7 @@ p {
 
 .optin-form-panel h2 {
   color: var(--white);
-  font-size: 1.35rem;
+  font-size: 1.42rem;
   text-align: center;
 }
 
@@ -329,7 +341,7 @@ select:focus {
 }
 
 .primary-button {
-  min-height: 50px;
+  min-height: 54px;
   border: 0;
   border-radius: 5px;
   color: var(--white);
@@ -341,7 +353,7 @@ select:focus {
 
 .security-note {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
@@ -782,10 +794,10 @@ legend {
   gap: 34px;
   width: min(100%, 1180px);
   margin-top: 44px;
-  padding: 24px 0 12px;
+  padding: 20px 0 8px;
   border-top: 1px solid rgba(7, 24, 50, 0.12);
   color: rgba(7, 24, 50, 0.62);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-align: left;
 }
 
@@ -818,7 +830,7 @@ legend {
 
 .footer-brand-link em {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-style: normal;
   font-weight: 800;
   line-height: 1.1;
@@ -844,7 +856,7 @@ legend {
 
 .site-footer h2 {
   margin: 0;
-  color: rgba(7, 24, 50, 0.58);
+  color: rgba(7, 24, 50, 0.5);
   font-size: 0.68rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -862,9 +874,9 @@ legend {
   justify-self: start;
   border: 0;
   padding: 0;
-  color: var(--navy);
+  color: rgba(8, 39, 91, 0.88);
   background: transparent;
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   font-weight: 900;
   line-height: 1.25;
   text-align: left;
@@ -1424,6 +1436,10 @@ legend {
   .header-call {
     min-width: 0;
     padding: 10px 12px;
+  }
+
+  .header-call span {
+    display: none;
   }
 
   .header-call strong {
