@@ -877,11 +877,10 @@ legend {
   color: rgba(8, 39, 91, 0.88);
   background: transparent;
   font-size: 0.73rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.25;
   text-align: left;
   text-decoration: none;
-  text-transform: uppercase;
   cursor: pointer;
 }
 
