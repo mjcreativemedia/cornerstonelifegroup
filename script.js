@@ -256,7 +256,9 @@ document.querySelectorAll("[data-back]").forEach((button) => {
   });
 });
 
-playButton.addEventListener("click", openVideoModal);
+if (playButton) {
+  playButton.addEventListener("click", openVideoModal);
+}
 
 document.querySelectorAll("[data-modal]").forEach((button) => {
   button.addEventListener("click", () => {
