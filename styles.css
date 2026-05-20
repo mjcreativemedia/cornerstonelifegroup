@@ -803,7 +803,8 @@ legend {
 
 .footer-brand {
   display: grid;
-  gap: 10px;
+  justify-items: start;
+  gap: 8px;
 }
 
 .footer-brand-link {
@@ -841,10 +842,34 @@ legend {
   margin: 0;
 }
 
+.footer-call {
+  display: inline-grid;
+  gap: 2px;
+  max-width: 220px;
+  border-radius: 7px;
+  padding: 8px 12px;
+  color: var(--white);
+  background: var(--green);
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(15, 111, 56, 0.15);
+}
+
+.footer-call span {
+  font-size: 0.56rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.footer-call strong {
+  font-size: 0.98rem;
+  line-height: 1.05;
+}
+
 .footer-link-groups {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(120px, 0.45fr) minmax(120px, 0.45fr);
-  gap: 28px;
+  grid-template-columns: minmax(220px, 1fr) minmax(120px, 0.45fr);
+  gap: 32px;
   text-align: left;
 }
 
@@ -902,7 +927,7 @@ legend {
   }
 
   .footer-link-groups {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 }
@@ -1519,6 +1544,10 @@ legend {
   .site-footer,
   .footer-link-groups {
     grid-template-columns: 1fr;
+  }
+
+  .footer-call {
+    max-width: 100%;
   }
 
   .optin-card,
