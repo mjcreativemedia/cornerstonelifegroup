@@ -91,10 +91,9 @@ body.modal-open {
 
 .optin-media {
   grid-area: media;
-  display: grid;
-  grid-template-columns: minmax(260px, 0.62fr) minmax(190px, 0.38fr);
-  align-items: center;
-  gap: 14px;
+  display: block;
+  width: min(100%, 84%);
+  justify-self: start;
 }
 
 .funnel-header {
@@ -204,7 +203,7 @@ p {
   width: 100%;
   border-radius: 5px;
   background: #dce4e7;
-  aspect-ratio: 16 / 10.5;
+  aspect-ratio: 16 / 9.4;
 }
 
 .video-frame img {
@@ -848,6 +847,7 @@ legend {
   max-width: 220px;
   border-radius: 7px;
   padding: 8px 12px;
+  margin-top: 10px;
   color: var(--white);
   background: var(--green);
   text-decoration: none;
@@ -912,6 +912,180 @@ legend {
 .site-footer a:hover,
 .site-footer button:hover {
   color: var(--green);
+}
+
+.niche-page .page-shell {
+  align-content: start;
+  padding-top: 12px;
+}
+
+.niche-page .funnel-page.active {
+  display: grid;
+}
+
+.niche-optin-card {
+  align-items: stretch;
+}
+
+.niche-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.advisor-spotlight,
+.niche-proof-list,
+.niche-detail-section,
+.niche-faq-section {
+  border: 1px solid rgba(8, 39, 91, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.advisor-spotlight {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 15px;
+}
+
+.advisor-spotlight img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.advisor-spotlight span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.advisor-spotlight strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--navy);
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.advisor-spotlight p {
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.niche-proof-list {
+  margin-top: 12px;
+  padding: 17px;
+}
+
+.niche-proof-list h2 {
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.niche-proof-list ul {
+  display: grid;
+  gap: 9px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.niche-proof-list li {
+  position: relative;
+  padding-left: 25px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.niche-proof-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--green);
+  content: "✓";
+  font-weight: 900;
+}
+
+.niche-detail-section,
+.niche-faq-section {
+  width: 100%;
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.niche-detail-section {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1fr);
+  gap: 22px;
+}
+
+.niche-detail-intro {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.niche-detail-intro h2,
+.niche-faq-section h2 {
+  color: var(--navy);
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.12;
+}
+
+.niche-detail-intro p,
+.niche-detail-grid p,
+.niche-faq-grid p {
+  color: #2f4038;
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.niche-detail-grid,
+.niche-faq-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.niche-detail-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.niche-detail-grid article,
+.niche-faq-grid article {
+  border-left: 3px solid rgba(199, 154, 58, 0.75);
+  padding-left: 14px;
+}
+
+.niche-detail-grid h3,
+.niche-faq-grid h3 {
+  margin-bottom: 7px;
+  color: var(--navy);
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+
+.niche-faq-section {
+  display: grid;
+  gap: 18px;
+}
+
+.niche-faq-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 @media (max-width: 820px) {
@@ -1483,14 +1657,6 @@ legend {
     align-self: stretch;
   }
 
-  .optin-media {
-    display: block;
-  }
-
-  .optin-media .check-list {
-    margin-top: 13px;
-  }
-
   .optin-form-panel form {
     grid-template-columns: 1fr;
   }
@@ -1503,6 +1669,16 @@ legend {
   }
 
   .check-list {
+    grid-template-columns: 1fr;
+  }
+
+  .media-trust-strip {
+    margin-top: 10px;
+  }
+
+  .niche-detail-section,
+  .niche-detail-grid,
+  .niche-faq-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1591,6 +1767,21 @@ legend {
   }
 
   .optin-form-panel {
+    padding: 18px;
+  }
+
+  .advisor-spotlight {
+    grid-template-columns: 76px 1fr;
+    padding: 13px;
+  }
+
+  .advisor-spotlight img {
+    width: 76px;
+    height: 76px;
+  }
+
+  .niche-detail-section,
+  .niche-faq-section {
     padding: 18px;
   }
 

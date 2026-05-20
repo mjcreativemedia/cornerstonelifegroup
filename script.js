@@ -70,6 +70,7 @@ function collectFormData(form) {
 
 function getTrackingFields() {
   const params = new URLSearchParams(window.location.search);
+  const pageDefaults = document.body.dataset;
 
   return {
     utm_source: params.get("utm_source") || "",
@@ -77,8 +78,8 @@ function getTrackingFields() {
     utm_campaign: params.get("utm_campaign") || "",
     utm_content: params.get("utm_content") || "",
     utm_term: params.get("utm_term") || "",
-    niche: params.get("niche") || "",
-    product_type: params.get("product_type") || "",
+    niche: params.get("niche") || pageDefaults.niche || "",
+    product_type: params.get("product_type") || pageDefaults.productType || "",
     landing_url: window.location.href,
     landing_page: window.location.pathname,
     referring_page: document.referrer || "",
