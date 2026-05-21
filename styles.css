@@ -661,8 +661,21 @@ legend {
   opacity: 0.72;
 }
 
-.netlify-hidden-form {
-  display: none;
+.lead-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cf-turnstile {
+  min-height: 65px;
+}
+
+.cf-turnstile iframe {
+  max-width: 100%;
 }
 
 .back-link {

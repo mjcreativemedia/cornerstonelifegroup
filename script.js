@@ -90,10 +90,6 @@ function isLocalPreview() {
   return ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
 }
 
-function encodeFormData(data) {
-  return new URLSearchParams(data).toString();
-}
-
 function setSubmissionError(message) {
   submissionError.textContent = message;
   submissionError.classList.toggle("visible", Boolean(message));
@@ -123,8 +119,6 @@ function formatSubjectSegment(value) {
 
 function buildLeadPayload() {
   return {
-    "form-name": "final-expense-lead",
-    "bot-field": "",
     subject: buildSubmissionSubject(),
     ...leadData,
     ...trackingFields,
@@ -132,7 +126,7 @@ function buildLeadPayload() {
   };
 }
 
-async function submitLeadToNetlify() {
+async function submitLead() {
   const payload = buildLeadPayload();
 
   if (isLocalPreview()) {
@@ -142,14 +136,20 @@ async function submitLeadToNetlify() {
     return;
   }
 
-  const response = await fetch("/", {
+  const response = await fetch("/api/lead", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodeFormData(payload),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
     throw new Error("Lead submission failed.");
+  }
+}
+
+function resetTurnstile() {
+  if (window.turnstile && typeof window.turnstile.reset === "function") {
+    window.turnstile.reset();
   }
 }
 
@@ -228,12 +228,13 @@ qualifyingForm.addEventListener("submit", (event) => {
   qualifyingSubmitButton.disabled = true;
   qualifyingSubmitButton.textContent = "Submitting...";
 
-  submitLeadToNetlify()
+  submitLead()
     .then(() => {
       updateFinalFollowupCopy();
       showPage(4);
     })
     .catch(() => {
+      resetTurnstile();
       setSubmissionError(
         "We could not submit your request just now. Please try again or call/text 312-287-4144.",
       );

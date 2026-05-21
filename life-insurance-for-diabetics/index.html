@@ -98,6 +98,8 @@
         ]
 }
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   </head>
   <body class="niche-page" data-niche="diabetics" data-product-type="whole_life">
     <main class="page-shell">
@@ -369,6 +371,18 @@
                 <label><input type="radio" name="timeframe" value="Just researching" />Just researching</label>
               </div>
             </fieldset>
+            <input
+              class="lead-honeypot"
+              type="text"
+              name="companyWebsite"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAADTYEea7q_84zoHV"
+            ></div>
 
             <button class="primary-button" type="submit">Continue</button>
             <p class="submission-error" id="submission-error" role="alert"></p>
@@ -415,43 +429,6 @@
           </div>
         </div>
       </section>
-
-      <form
-        name="final-expense-lead"
-        class="netlify-hidden-form"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        hidden
-      >
-        <input type="hidden" name="form-name" value="final-expense-lead" />
-        <input type="hidden" name="subject" value="New Lead" />
-        <input type="text" name="bot-field" />
-        <input type="text" name="firstName" />
-        <input type="text" name="lastName" />
-        <input type="tel" name="phone" />
-        <input type="text" name="dob" />
-        <input type="text" name="state" />
-        <input type="text" name="smoker" />
-        <input type="text" name="preference" />
-        <input type="text" name="contactPreference" />
-        <input type="text" name="ageRange" />
-        <input type="text" name="existingCoverage" />
-        <input type="text" name="goal" />
-        <input type="text" name="beneficiaryIntent" />
-        <input type="text" name="timeframe" />
-        <input type="text" name="utm_source" />
-        <input type="text" name="utm_medium" />
-        <input type="text" name="utm_campaign" />
-        <input type="text" name="utm_content" />
-        <input type="text" name="utm_term" />
-        <input type="text" name="niche" />
-        <input type="text" name="product_type" />
-        <input type="text" name="landing_url" />
-        <input type="text" name="landing_page" />
-        <input type="text" name="referring_page" />
-        <input type="text" name="submitted_at" />
-      </form>
 
       <footer class="site-footer" aria-label="Site information">
         <div class="footer-brand">
