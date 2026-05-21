@@ -1,7 +1,3 @@
 name = "cornerstone-life-group"
 pages_build_output_dir = "."
 compatibility_date = "2026-05-20"
-
-[[send_email]]
-name = "LEAD_EMAIL"
-remote = true
