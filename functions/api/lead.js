@@ -59,15 +59,13 @@ export async function onRequest(context) {
 
   try {
     if (!env.TURNSTILE_SECRET_KEY) {
-      const error = { message: "TURNSTILE_SECRET_KEY is not set." };
-      console.error("Lead submission failed: missing env var:", error);
-      return debugErrorResponse(error, 500);
+      console.error("Lead submission failed: TURNSTILE_SECRET_KEY is not set.");
+      return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
     }
 
     if (!env.RESEND_API_KEY) {
-      const error = { message: "RESEND_API_KEY is not set." };
-      console.error("Lead submission failed: missing env var:", error);
-      return debugErrorResponse(error, 500);
+      console.error("Lead submission failed: RESEND_API_KEY is not set.");
+      return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
     }
 
     const turnstileResult = await verifyTurnstile(
@@ -77,31 +75,24 @@ export async function onRequest(context) {
     );
 
     if (!turnstileResult.success) {
-      const error = {
-        message: "Turnstile verification failed.",
-        errorCodes: turnstileResult["error-codes"] || [],
-        turnstileResult,
-      };
-      console.error("Lead submission rejected: Turnstile failed:", error);
-      return debugErrorResponse(error, 400);
+      console.error(
+        "Lead submission rejected: Turnstile failed:",
+        (turnstileResult["error-codes"] || []).join(", ") || "unknown",
+      );
+      return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
     }
 
     const emailResult = await sendLeadEmail(payload, env);
 
     if (!emailResult.ok) {
-      const error = {
-        message: "Resend API request failed.",
-        status: emailResult.status,
-        body: emailResult.body,
-      };
-      console.error("Lead submission email failed: Resend API error:", error);
-      return debugErrorResponse(error, 500);
+      console.error("Lead submission email failed:", emailResult.status);
+      return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
     }
 
     return jsonResponse({ ok: true });
   } catch (error) {
     console.error("Lead submission failed: unexpected exception:", error);
-    return debugErrorResponse(error, 500);
+    return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
   }
 }
 
@@ -149,9 +140,7 @@ async function sendLeadEmail(payload, env) {
     }),
   });
 
-  const responseBody = await response.text();
-
-  return { ok: response.ok, status: response.status, body: responseBody };
+  return { ok: response.ok, status: response.status };
 }
 
 function buildSubmissionSubject(payload) {
@@ -232,8 +221,4 @@ function jsonResponse(body, status = 200, headers = {}) {
       ...headers,
     },
   });
-}
-
-function debugErrorResponse(error, status) {
-  return jsonResponse({ ok: false, error: JSON.stringify(error) }, status);
 }
