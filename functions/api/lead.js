@@ -3,7 +3,7 @@ const TURNSTILE_VERIFY_URL =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const LEAD_RECIPIENT = "carlos.tpglife@gmail.com";
 
-const REQUIRED_FIELDS = [
+const LEAD_REQUIRED_FIELDS = [
   "firstName",
   "lastName",
   "phone",
@@ -11,8 +11,10 @@ const REQUIRED_FIELDS = [
   "state",
   "smoker",
   "preference",
+];
+const ENRICHMENT_IDENTITY_FIELDS = ["firstName", "lastName", "phone", "dob"];
+const ENRICHMENT_FIELDS = [
   "contactPreference",
-  "ageRange",
   "existingCoverage",
   "goal",
   "beneficiaryIntent",
@@ -47,7 +49,13 @@ export async function onRequest(context) {
     return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
   }
 
-  const missingFields = REQUIRED_FIELDS.filter((field) => !hasValue(payload[field]));
+  const submissionType =
+    payload.submission_type === "enrichment" ? "enrichment" : "lead";
+  const requiredFields =
+    submissionType === "enrichment"
+      ? ENRICHMENT_IDENTITY_FIELDS
+      : LEAD_REQUIRED_FIELDS;
+  const missingFields = requiredFields.filter((field) => !hasValue(payload[field]));
 
   if (missingFields.length > 0) {
     console.error(
@@ -57,8 +65,13 @@ export async function onRequest(context) {
     return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
   }
 
+  if (submissionType === "enrichment" && !hasAnyEnrichmentValue(payload)) {
+    console.error("Lead enrichment rejected: no enrichment fields present.");
+    return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
+  }
+
   try {
-    if (!env.TURNSTILE_SECRET_KEY) {
+    if (submissionType === "lead" && !env.TURNSTILE_SECRET_KEY) {
       console.error("Lead submission failed: TURNSTILE_SECRET_KEY is not set.");
       return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
     }
@@ -68,18 +81,20 @@ export async function onRequest(context) {
       return jsonResponse({ ok: false, error: "Unable to submit lead." }, 500);
     }
 
-    const turnstileResult = await verifyTurnstile(
-      env.TURNSTILE_SECRET_KEY,
-      payload["cf-turnstile-response"],
-      request.headers.get("CF-Connecting-IP") || "",
-    );
-
-    if (!turnstileResult.success) {
-      console.error(
-        "Lead submission rejected: Turnstile failed:",
-        (turnstileResult["error-codes"] || []).join(", ") || "unknown",
+    if (submissionType === "lead") {
+      const turnstileResult = await verifyTurnstile(
+        env.TURNSTILE_SECRET_KEY,
+        payload["cf-turnstile-response"],
+        request.headers.get("CF-Connecting-IP") || "",
       );
-      return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
+
+      if (!turnstileResult.success) {
+        console.error(
+          "Lead submission rejected: Turnstile failed:",
+          (turnstileResult["error-codes"] || []).join(", ") || "unknown",
+        );
+        return jsonResponse({ ok: false, error: "Unable to submit lead." }, 400);
+      }
     }
 
     const emailResult = await sendLeadEmail(payload, env);
@@ -144,12 +159,33 @@ async function sendLeadEmail(payload, env) {
 }
 
 function buildSubmissionSubject(payload) {
-  return `New Lead - ${formatLeadType(payload)} - ${formatFullName(payload)}`;
+  const prefix =
+    payload.submission_type === "enrichment" ? "Lead Update" : "New Lead";
+  return `${prefix} - ${formatLeadType(payload)} - ${formatFullName(payload)}`;
 }
 
 function buildLeadEmailText(payload) {
+  const isEnrichment = payload.submission_type === "enrichment";
+  const heading = isEnrichment
+    ? "Cornerstone Life Group lead update"
+    : "New Cornerstone Life Group lead";
+  const answerLines = isEnrichment
+    ? [
+        `- Preferred contact: ${formatValue(payload.contactPreference)}`,
+        `- Existing coverage: ${formatValue(payload.existingCoverage)}`,
+        `- Goal: ${formatValue(payload.goal)}`,
+        `- Protecting: ${formatValue(payload.beneficiaryIntent)}`,
+        `- Timeframe: ${formatValue(payload.timeframe)}`,
+      ]
+    : [
+        `- Date of birth: ${formatValue(payload.dob)}`,
+        `- State: ${formatValue(payload.state)}`,
+        `- Smoker status: ${formatValue(payload.smoker)}`,
+        `- Burial or cremation: ${formatValue(payload.preference)}`,
+      ];
+
   return [
-    "New Cornerstone Life Group lead",
+    heading,
     "",
     `Lead type: ${formatLeadType(payload)}`,
     `Name: ${formatFullName(payload)}`,
@@ -159,16 +195,7 @@ function buildLeadEmailText(payload) {
     `Landing page source: ${formatLandingSource(payload)}`,
     "",
     "Answers:",
-    `- Date of birth: ${formatValue(payload.dob)}`,
-    `- State: ${formatValue(payload.state)}`,
-    `- Smoker status: ${formatValue(payload.smoker)}`,
-    `- Burial or cremation: ${formatValue(payload.preference)}`,
-    `- Preferred contact: ${formatValue(payload.contactPreference)}`,
-    `- Age range: ${formatValue(payload.ageRange)}`,
-    `- Existing coverage: ${formatValue(payload.existingCoverage)}`,
-    `- Goal: ${formatValue(payload.goal)}`,
-    `- Protecting: ${formatValue(payload.beneficiaryIntent)}`,
-    `- Timeframe: ${formatValue(payload.timeframe)}`,
+    ...answerLines,
   ].join("\n");
 }
 
@@ -211,6 +238,10 @@ function formatValue(value) {
 
 function hasValue(value) {
   return formatValue(value) !== "-";
+}
+
+function hasAnyEnrichmentValue(payload) {
+  return ENRICHMENT_FIELDS.some((field) => hasValue(payload[field]));
 }
 
 function jsonResponse(body, status = 200, headers = {}) {

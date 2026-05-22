@@ -2,10 +2,14 @@ const pages = Array.from(document.querySelectorAll(".funnel-page"));
 const leadForm = document.querySelector("#lead-form");
 const preferenceForm = document.querySelector("#preference-form");
 const qualifyingForm = document.querySelector("#qualifying-form");
-const continueToQuestions = document.querySelector("#continue-to-questions");
+const leadSubmitButton = leadForm.querySelector(".primary-button");
 const qualifyingSubmitButton = qualifyingForm.querySelector(".primary-button");
 const submissionError = document.querySelector("#submission-error");
-const finalFollowupCopy = document.querySelector("#final-followup-copy");
+const enrichmentError = document.querySelector("#enrichment-error");
+const optionalSuccess = document.querySelector("#optional-success");
+const preferenceStatus = document.querySelector("#preference-status");
+const skipOptionalButton = document.querySelector("#skip-optional");
+const optionalCoverageSection = document.querySelector("#optional-coverage-section");
 const playButton = document.querySelector(".play-button");
 const videoModal = document.querySelector("#video-modal");
 const introVideo = document.querySelector("#intro-video");
@@ -90,12 +94,16 @@ function isLocalPreview() {
   return ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
 }
 
-function setSubmissionError(message) {
-  submissionError.textContent = message;
-  submissionError.classList.toggle("visible", Boolean(message));
+function setStatusMessage(element, message) {
+  if (!element) {
+    return;
+  }
+
+  element.textContent = message;
+  element.classList.toggle("visible", Boolean(message));
 }
 
-function buildSubmissionSubject() {
+function buildSubmissionSubject(submissionType) {
   const leadName = [leadData.firstName, leadData.lastName]
     .filter(Boolean)
     .join(" ")
@@ -105,8 +113,8 @@ function buildSubmissionSubject() {
   );
 
   return leadName
-    ? `New Lead - ${leadSource} - ${leadName}`
-    : `New Lead - ${leadSource}`;
+    ? `${submissionType === "enrichment" ? "Lead Update" : "New Lead"} - ${leadSource} - ${leadName}`
+    : `${submissionType === "enrichment" ? "Lead Update" : "New Lead"} - ${leadSource}`;
 }
 
 function formatSubjectSegment(value) {
@@ -117,19 +125,22 @@ function formatSubjectSegment(value) {
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function buildLeadPayload() {
+function buildLeadPayload(submissionType) {
   return {
-    subject: buildSubmissionSubject(),
+    subject: buildSubmissionSubject(submissionType),
+    submission_type: submissionType,
     ...leadData,
     ...trackingFields,
     submitted_at: new Date().toISOString(),
   };
 }
 
-async function submitLead() {
-  const payload = buildLeadPayload();
+async function submitLead(submissionType = "lead") {
+  const payload = buildLeadPayload(submissionType);
 
   if (isLocalPreview()) {
+    window.__leadPayloads = window.__leadPayloads || [];
+    window.__leadPayloads.push(payload);
     window.__lastLeadPayload = payload;
     document.documentElement.dataset.lastLeadPayload = JSON.stringify(payload);
     console.table(payload);
@@ -160,23 +171,24 @@ function resetTurnstile() {
   }
 }
 
-function updateFinalFollowupCopy() {
+function getPreferenceConfirmation() {
   const preference = leadData.contactPreference;
 
   if (preference === "call") {
-    finalFollowupCopy.textContent =
-      "I will be calling you shortly to go over your coverage options.";
-    return;
+    return "Carlos will call you shortly.";
   }
 
   if (preference === "text") {
-    finalFollowupCopy.textContent =
-      "I will be texting you shortly to go over your coverage options.";
-    return;
+    return "Carlos will text you shortly.";
   }
 
-  finalFollowupCopy.textContent =
-    "I will be calling or texting you shortly to go over your coverage options.";
+  return "";
+}
+
+function hasEnrichmentAnswer(formData) {
+  return ["existingCoverage", "goal", "beneficiaryIntent", "timeframe"].some(
+    (field) => Boolean(formData[field]),
+  );
 }
 
 function openModal(modalName) {
@@ -216,41 +228,98 @@ function closeVideoModal() {
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
   Object.assign(leadData, collectFormData(leadForm));
-  showPage(2);
-});
+  setStatusMessage(submissionError, "");
+  leadSubmitButton.disabled = true;
+  leadSubmitButton.textContent = "Submitting...";
 
-continueToQuestions.addEventListener("click", () => {
-  if (!preferenceForm.reportValidity()) {
-    return;
-  }
-
-  Object.assign(leadData, collectFormData(preferenceForm));
-  showPage(3);
-});
-
-qualifyingForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  Object.assign(leadData, collectFormData(qualifyingForm));
-  setSubmissionError("");
-  qualifyingSubmitButton.disabled = true;
-  qualifyingSubmitButton.textContent = "Submitting...";
-
-  submitLead()
+  submitLead("lead")
     .then(() => {
-      updateFinalFollowupCopy();
-      showPage(4);
+      showPage(2);
     })
     .catch((error) => {
       console.error("Lead submission frontend error:", error);
       resetTurnstile();
-      setSubmissionError(
+      setStatusMessage(
+        submissionError,
         "We could not submit your request just now. Please try again or call/text 312-287-4144.",
       );
     })
     .finally(() => {
-      qualifyingSubmitButton.disabled = false;
-      qualifyingSubmitButton.textContent = "Continue";
+      leadSubmitButton.disabled = false;
+      leadSubmitButton.textContent = "See My Options";
     });
+});
+
+qualifyingForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const optionalAnswers = collectFormData(qualifyingForm);
+
+  setStatusMessage(enrichmentError, "");
+  setStatusMessage(optionalSuccess, "");
+
+  if (!hasEnrichmentAnswer(optionalAnswers)) {
+    setStatusMessage(
+      enrichmentError,
+      "Choose any optional answer you want to send, or skip this section.",
+    );
+    return;
+  }
+
+  Object.assign(leadData, optionalAnswers);
+  qualifyingSubmitButton.disabled = true;
+  qualifyingSubmitButton.textContent = "Sending...";
+
+  submitLead("enrichment")
+    .then(() => {
+      setStatusMessage(
+        optionalSuccess,
+        "Thanks - Carlos has your optional answers.",
+      );
+      qualifyingForm.classList.add("is-complete");
+      qualifyingSubmitButton.textContent = "Answers Sent";
+    })
+    .catch((error) => {
+      console.error("Lead enrichment frontend error:", error);
+      setStatusMessage(
+        enrichmentError,
+        "Your request is already received, but these optional answers did not send. You can try again or share them with Carlos directly.",
+      );
+    })
+    .finally(() => {
+      if (!qualifyingForm.classList.contains("is-complete")) {
+        qualifyingSubmitButton.disabled = false;
+        qualifyingSubmitButton.textContent = "Send Optional Answers";
+      }
+    });
+});
+
+preferenceForm.addEventListener("change", (event) => {
+  if (event.target.name !== "contactPreference") {
+    return;
+  }
+
+  Object.assign(leadData, collectFormData(preferenceForm));
+  setStatusMessage(preferenceStatus, "Saving your preference...");
+
+  submitLead("enrichment")
+    .then(() => {
+      setStatusMessage(preferenceStatus, `✓ ${getPreferenceConfirmation()}`);
+    })
+    .catch((error) => {
+      console.error("Preference enrichment frontend error:", error);
+      setStatusMessage(
+        preferenceStatus,
+        `${getPreferenceConfirmation()} Your request is already received, but this preference did not save automatically.`,
+      );
+    });
+});
+
+skipOptionalButton.addEventListener("click", () => {
+  optionalCoverageSection.classList.add("is-collapsed");
+  setStatusMessage(
+    optionalSuccess,
+    "No problem - your request has already been received.",
+  );
 });
 
 document.querySelectorAll("[data-next]").forEach((button) => {

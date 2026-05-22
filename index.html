@@ -46,7 +46,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260520d" />
+    <link rel="stylesheet" href="styles.css?v=20260522a" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -103,7 +103,7 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   </head>
-  <body>
+  <body data-niche="final-expense" data-product-type="final_expense">
     <main class="page-shell">
       <header class="funnel-header" aria-label="Cornerstone Life Group header">
         <a class="funnel-brand" href="/" aria-label="Cornerstone Life Group home">
@@ -199,7 +199,21 @@
                 </select>
               </label>
 
+              <input
+                class="lead-honeypot"
+                type="text"
+                name="companyWebsite"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAADTYEea7q_84zoHV"
+              ></div>
+
               <button class="primary-button" type="submit">See My Options</button>
+              <p class="submission-error" id="submission-error" role="alert"></p>
               <p class="consent-note">
                 By clicking See My Options, you agree that Cornerstone Life
                 Group and/or Carlos Vasquez may call or text you at the number
@@ -228,12 +242,15 @@
 
           <div class="advisor-body">
             <img src="Assets/carlos-portrait-main.PNG" alt="Carlos Vasquez" />
-            <h2>Hi, I’m Carlos Vasquez</h2>
+            <h2>Hi, I'm Carlos Vasquez</h2>
             <p>I personally review every request.</p>
 
             <div class="soft-callout">
-              I will be reaching out to you shortly by phone or text to go over
-              your coverage options.
+              Your request is in. I will review your information and follow up by phone or text to go over your coverage options.
+            </div>
+
+            <div class="timing-note">
+              Most requests are reviewed within 5-15 minutes during business hours.
             </div>
 
             <div class="phone-lite">
@@ -244,146 +261,81 @@
             <form id="preference-form" class="preference-form">
               <fieldset>
                 <legend>How would you prefer I follow up?</legend>
-                <div class="choice-grid two">
-                  <label><input type="radio" name="contactPreference" value="call" required />Call me</label>
+                <div class="choice-grid two preference-choice-grid">
+                  <label><input type="radio" name="contactPreference" value="call" />Call me</label>
                   <label><input type="radio" name="contactPreference" value="text" />Text me</label>
                 </div>
               </fieldset>
+              <p class="preference-status" id="preference-status" aria-live="polite"></p>
             </form>
 
             <div class="next-box">
-              <h3>Here’s What Happens Next:</h3>
+              <h3>Here's What Happens Next:</h3>
               <ul class="check-list compact">
-                <li>I’ll review your information</li>
-                <li>I’ll find more accurate options for you</li>
-                <li>I’ll follow up the way you prefer</li>
+                <li>I'll review your information</li>
+                <li>I'll look for coverage options that may fit</li>
+                <li>I'll follow up the way you prefer</li>
               </ul>
             </div>
 
-            <button class="primary-button" type="button" id="continue-to-questions">
-              Answer A Few Quick Questions
-            </button>
+            <section class="optional-coverage-section" id="optional-coverage-section" aria-label="Optional coverage preferences">
+              <div class="optional-heading-row">
+                <div>
+                  <h3>Help Us Match Better Coverage Options</h3>
+                  <p>Answer 4 optional questions so Carlos can better prepare your options.</p>
+                </div>
+                <button class="secondary-button" type="button" id="skip-optional">Skip</button>
+              </div>
+
+              <form id="qualifying-form" class="optional-questions-form">
+                <fieldset>
+                  <legend>Do you currently have any life insurance or burial coverage?</legend>
+                  <div class="choice-grid two">
+                    <label><input type="radio" name="existingCoverage" value="Yes" />Yes</label>
+                    <label><input type="radio" name="existingCoverage" value="No" />No</label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>What best describes your goal?</legend>
+                  <div class="choice-grid two">
+                    <label><input type="radio" name="goal" value="Cover funeral costs" />Cover funeral costs</label>
+                    <label><input type="radio" name="goal" value="Leave money for my family" />Leave money for my family</label>
+                    <label><input type="radio" name="goal" value="Replace lost income" />Replace lost income</label>
+                    <label><input type="radio" name="goal" value="Just exploring options" />Just exploring options</label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Who would you want this coverage to protect?</legend>
+                  <div class="choice-grid two">
+                    <label><input type="radio" name="beneficiaryIntent" value="Spouse" />Spouse</label>
+                    <label><input type="radio" name="beneficiaryIntent" value="Children" />Children</label>
+                    <label><input type="radio" name="beneficiaryIntent" value="Family member" />Family member</label>
+                    <label><input type="radio" name="beneficiaryIntent" value="Other loved one" />Other loved one</label>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>How soon are you looking to secure coverage?</legend>
+                  <div class="choice-grid three">
+                    <label><input type="radio" name="timeframe" value="Immediately" />Immediately</label>
+                    <label><input type="radio" name="timeframe" value="Within 30 days" />Within 30 days</label>
+                    <label><input type="radio" name="timeframe" value="Just researching" />Just researching</label>
+                  </div>
+                </fieldset>
+
+                <button class="primary-button" type="submit">Send Optional Answers</button>
+                <p class="submission-error enrichment-error" id="enrichment-error" role="alert"></p>
+                <p class="optional-success" id="optional-success" aria-live="polite"></p>
+                <p class="security-note dark">Your optional answers are confidential.</p>
+              </form>
+            </section>
           </div>
 
           <footer>
             Your information is handled securely and used to review coverage options.
           </footer>
-        </div>
-      </section>
-
-      <section class="funnel-page" data-page="3" aria-label="Qualifying questions page">
-        <div class="questions-card">
-          <h2>A Few Quick Questions</h2>
-          <p>So I Can Review The Right Options For You</p>
-          <div class="progress-mini"><span></span></div>
-
-          <form id="qualifying-form">
-            <button class="back-link" type="button" data-back="2">
-              Back
-            </button>
-
-            <fieldset>
-              <legend>1. What is your age range?</legend>
-              <div class="choice-grid four">
-                <label><input type="radio" name="ageRange" value="50-60" required />50-60</label>
-                <label><input type="radio" name="ageRange" value="61-70" />61-70</label>
-                <label><input type="radio" name="ageRange" value="71-80" />71-80</label>
-                <label><input type="radio" name="ageRange" value="81-85" />81-85</label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>2. Do you currently have any life insurance or burial coverage?</legend>
-              <div class="choice-grid two">
-                <label><input type="radio" name="existingCoverage" value="Yes" required />Yes</label>
-                <label><input type="radio" name="existingCoverage" value="No" />No</label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>3. What best describes your goal?</legend>
-              <div class="choice-grid two">
-                <label><input type="radio" name="goal" value="Cover funeral costs" required />Cover funeral costs</label>
-                <label><input type="radio" name="goal" value="Leave money for my family" />Leave money for my family</label>
-                <label><input type="radio" name="goal" value="Replace lost income" />Replace lost income</label>
-                <label><input type="radio" name="goal" value="Just exploring options" />Just exploring options</label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>4. Who would you want this coverage to protect?</legend>
-              <div class="choice-grid two">
-                <label><input type="radio" name="beneficiaryIntent" value="Spouse" required />Spouse</label>
-                <label><input type="radio" name="beneficiaryIntent" value="Children" />Children</label>
-                <label><input type="radio" name="beneficiaryIntent" value="Family member" />Family member</label>
-                <label><input type="radio" name="beneficiaryIntent" value="Other loved one" />Other loved one</label>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>5. How soon are you looking to secure coverage?</legend>
-              <div class="choice-grid three">
-                <label><input type="radio" name="timeframe" value="Immediately" required />Immediately</label>
-                <label><input type="radio" name="timeframe" value="Within 30 days" />Within 30 days</label>
-                <label><input type="radio" name="timeframe" value="Just researching" />Just researching</label>
-              </div>
-            </fieldset>
-            <input
-              class="lead-honeypot"
-              type="text"
-              name="companyWebsite"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-            />
-            <div
-              class="cf-turnstile"
-              data-sitekey="0x4AAAAAADTYEea7q_84zoHV"
-            ></div>
-
-            <button class="primary-button" type="submit">Continue</button>
-            <p class="submission-error" id="submission-error" role="alert"></p>
-            <p class="security-note dark">Your answers are confidential.</p>
-          </form>
-        </div>
-      </section>
-
-      <section class="funnel-page" data-page="4" aria-label="Final thank you page">
-        <div class="final-card">
-          <header class="navy-header">
-            <span class="success-badge" aria-hidden="true">✓</span>
-            <h2>You’re All Set!</h2>
-            <p>Thank you for your time.</p>
-          </header>
-
-          <div class="final-body">
-            <img
-              class="final-advisor-photo"
-              src="Assets/carlos-portrait-main.PNG"
-              alt="Carlos Vasquez"
-            />
-
-            <div class="callout-row">
-              <span aria-hidden="true">☎</span>
-              <p id="final-followup-copy">
-                I will be calling or texting you shortly to go over your coverage options.
-              </p>
-            </div>
-
-            <h2>In The Meantime...</h2>
-            <ul class="icon-list">
-              <li>No obligation to enroll</li>
-              <li>We are here to help you find the right coverage for your needs</li>
-              <li>Our goal is to protect you and your loved ones</li>
-            </ul>
-
-            <div class="phone-panel">
-              <p>Have Questions Now?</p>
-              <span>Call or Text Me Directly</span>
-              <strong>312-287-4144</strong>
-              <a href="tel:3122874144">Call or Text Me Now</a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -486,6 +438,6 @@
       </section>
     </div>
 
-    <script src="script.js?v=20260519b"></script>
+    <script src="script.js?v=20260522a"></script>
   </body>
 </html>
