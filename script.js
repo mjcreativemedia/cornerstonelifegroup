@@ -141,9 +141,16 @@ async function submitLead() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
+  const responsePayload = await response.json();
 
-  if (!response.ok) {
-    throw new Error("Lead submission failed.");
+  console.log("Lead submission response:", {
+    status: response.status,
+    ok: response.ok,
+    payload: responsePayload,
+  });
+
+  if (!response.ok || responsePayload.ok !== true) {
+    throw new Error(responsePayload.error || "Lead submission failed.");
   }
 }
 
@@ -233,7 +240,8 @@ qualifyingForm.addEventListener("submit", (event) => {
       updateFinalFollowupCopy();
       showPage(4);
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error("Lead submission frontend error:", error);
       resetTurnstile();
       setSubmissionError(
         "We could not submit your request just now. Please try again or call/text 312-287-4144.",
