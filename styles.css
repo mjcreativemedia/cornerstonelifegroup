@@ -1335,3 +1335,21 @@ dialog a {
 .brand img {
   border-radius: 50%;
 }
+
+/* Original selfie thumbnail beside the personal contact link. */
+.light-link {
+  gap: 12px;
+  padding-bottom: 10px;
+}
+.light-link .carlos-selfie {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 37%;
+  border: 1px solid #d9b77280;
+}
+.light-link > span {
+  margin-left: 16px;
+}
