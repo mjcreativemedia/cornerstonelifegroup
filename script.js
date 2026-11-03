@@ -1,363 +1,188 @@
-const pages = Array.from(document.querySelectorAll(".funnel-page"));
-const leadForm = document.querySelector("#lead-form");
-const preferenceForm = document.querySelector("#preference-form");
-const qualifyingForm = document.querySelector("#qualifying-form");
-const leadSubmitButton = leadForm.querySelector(".primary-button");
-const qualifyingSubmitButton = qualifyingForm.querySelector(".primary-button");
-const submissionError = document.querySelector("#submission-error");
-const enrichmentError = document.querySelector("#enrichment-error");
-const optionalSuccess = document.querySelector("#optional-success");
-const preferenceStatus = document.querySelector("#preference-status");
-const skipOptionalButton = document.querySelector("#skip-optional");
-const optionalCoverageSection = document.querySelector("#optional-coverage-section");
-const playButton = document.querySelector(".play-button");
-const videoModal = document.querySelector("#video-modal");
-const introVideo = document.querySelector("#intro-video");
-const legalModal = document.querySelector("#legal-modal");
-const legalModalTitle = document.querySelector("#legal-modal-title");
-const legalModalContent = document.querySelector("#legal-modal-content");
-const leadData = {};
-const trackingFields = getTrackingFields();
-
-const modalContent = {
-  about: {
-    title: "About Cornerstone Life Group",
-    body: `
-      <p>Cornerstone Life Group provides assistance with final expense and life insurance coverage options. Requests submitted through this website are reviewed so that available options may be discussed based on the information provided.</p>
-      <p>Carlos Vasquez reviews requests and may contact you by phone or text to discuss coverage options, answer questions, and help determine whether a policy may fit your needs.</p>
-      <p>For immediate questions, call or text <strong>312-287-4144</strong>.</p>
-      <p class="legal-disclaimer">Coverage options, eligibility, rates, and product availability vary by carrier, underwriting, and state approval. Cornerstone Life Group currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois.</p>
-    `,
-  },
+const form = document.querySelector("#funding-form");
+const steps = [...form.querySelectorAll("fieldset")];
+const progress = [...document.querySelectorAll(".progress li")];
+const next = document.querySelector("#continue");
+const back = document.querySelector("#back");
+const error = document.querySelector("#form-error");
+let current = 0;
+let sending = false;
+const requestId = crypto.randomUUID();
+const submittedAt = new Date().toISOString();
+let securityLoaded = false;
+const states =
+  "Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,District of Columbia,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming";
+states
+  .split(",")
+  .forEach((state) =>
+    document.querySelector("#state").add(new Option(state, state)),
+  );
+function showStep(index) {
+  current = index;
+  steps.forEach((step, i) => {
+    step.hidden = i !== index;
+    step.disabled = i !== index;
+  });
+  progress.forEach((item, i) => {
+    item.classList.toggle("current", i === index);
+    item.classList.toggle("done", i < index);
+    if (i === index) item.setAttribute("aria-current", "step");
+    else item.removeAttribute("aria-current");
+  });
+  back.hidden = index === 0;
+  next.querySelector("span").textContent =
+    index === 2 ? "Request funding options" : "Continue";
+  error.textContent = "";
+  if (index === 2 && !securityLoaded) loadSecurity();
+}
+showStep(0);
+back.addEventListener("click", () => {
+  if (!sending) {
+    showStep(current - 1);
+    steps[current].querySelector("input,select").focus({ preventScroll: true });
+  }
+});
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (sending) return;
+  const invalid = [...steps[current].querySelectorAll("input,select")].find(
+    (input) => !input.checkValidity(),
+  );
+  if (invalid) {
+    invalid.reportValidity();
+    return;
+  }
+  if (current < 2) {
+    showStep(current + 1);
+    steps[current].querySelector("input,select").focus({ preventScroll: true });
+    return;
+  }
+  error.textContent = "";
+  const token = document.querySelector('[name="cf-turnstile-response"]')?.value;
+  if (!token) {
+    error.textContent =
+      "Please complete the security check. If it does not load, call Carlos at (312) 287-4144.";
+    return;
+  }
+  sending = true;
+  next.disabled = true;
+  back.disabled = true;
+  next.querySelector("span").textContent = "Sending your inquiry…";
+  // Disabled steps remain excluded from validation; collect their values explicitly.
+  const payload = Object.fromEntries(
+    [...form.querySelectorAll("input,select")].map((input) => [
+      input.name,
+      input.type === "checkbox" ? input.checked : input.value,
+    ]),
+  );
+  const params = new URLSearchParams(location.search);
+  Object.assign(payload, {
+    product_type: "business_funding",
+    requestId,
+    consentVersion: "funding-inquiry-v1",
+    submitted_at: submittedAt,
+    landing_page: location.pathname,
+  });
+  [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+  ].forEach((key) => (payload[key] = (params.get(key) || "").slice(0, 200)));
+  try {
+    const response = await fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(25000),
+    });
+    const result = await response.json();
+    if (!response.ok || result.ok !== true)
+      throw new Error("Submission failed");
+    document.querySelector("#form-content").hidden = true;
+    const confirmation = document.querySelector("#confirmation");
+    confirmation.hidden = false;
+    confirmation.focus({ preventScroll: true });
+  } catch {
+    error.textContent =
+      "Your inquiry could not be confirmed. Your answers are still here. Please try again or call Carlos at (312) 287-4144.";
+    if (window.turnstile) window.turnstile.reset();
+  } finally {
+    sending = false;
+    next.disabled = false;
+    back.disabled = false;
+    next.querySelector("span").textContent = "Request funding options";
+  }
+});
+// The existing production Turnstile key is domain restricted. Local previews never simulate receipt.
+function loadSecurity() {
+  securityLoaded = true;
+  if (["127.0.0.1", "localhost"].includes(location.hostname)) {
+    document.querySelector("#turnstile").innerHTML =
+      '<p class="field-note">Local preview: live security verification and delivery must be tested on the configured domain.</p>';
+    return;
+  }
+  const securityScript = document.createElement("script");
+  securityScript.src =
+    "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=initSecurity&render=explicit";
+  securityScript.async = true;
+  window.initSecurity = () =>
+    window.turnstile.render("#turnstile", {
+      sitekey: "0x4AAAAAADTYEea7q_84zoHV",
+      theme: "light",
+      "error-callback": () => {
+        error.textContent =
+          "Security verification is unavailable. Please retry or call (312) 287-4144.";
+      },
+    });
+  document.head.append(securityScript);
+}
+document.querySelectorAll("[data-purpose]").forEach((link) =>
+  link.addEventListener("click", () => {
+    if (sending || !document.querySelector("#confirmation").hidden) return;
+    document.querySelector("#purpose").value = link.dataset.purpose;
+    showStep(0);
+  }),
+);
+const legal = {
   privacy: {
     title: "Privacy Notice",
-    body: `
-      <h3>Information Collected</h3>
-      <p>This funnel may collect information you submit, including your name, phone number, date of birth, state, smoker status, burial or cremation preference, coverage goals, beneficiary/protection intent, preferred contact method, and other qualification answers.</p>
-      <h3>Use Of Information</h3>
-      <p>Information may be used to review coverage options, respond to your request, contact you by phone or text, provide customer support, and improve this funnel and related services.</p>
-      <h3>Sharing Of Information</h3>
-      <p>Information may be shared only as reasonably needed to provide quotes, coverage options, or related insurance services, including with licensed insurance professionals, carrier partners, agencies, or service providers where applicable.</p>
-      <h3>Contact</h3>
-      <p>For privacy questions or requests, call or text <strong>312-287-4144</strong>.</p>
-      <p class="legal-disclaimer">This notice is intended to summarize how submitted information is used for insurance-related follow-up. It should be reviewed periodically as carrier, vendor, and compliance requirements evolve.</p>
-    `,
+    body: `<h3>Information you provide</h3><p>The inquiry form asks for your funding needs, business name, industry, state, time in business, monthly revenue range, name, email, phone, and preferred contact method. We also receive campaign source information when present and record the inquiry time and your contact request. Do not submit bank statements, account numbers, Social Security numbers, or identification through this form.</p><h3>How this inquiry is handled</h3><p>Your inquiry is sent to Cornerstone Life Group so Carlos Vasquez can review it and respond using your selected contact method. Cloudflare provides website and security services; Resend provides email delivery. Those services process data needed to deliver and protect the inquiry.</p><h3>Provider applications</h3><p>If you choose to explore a provider option, discuss with Carlos what information will be shared and how the provider’s application process works. A provider may have its own privacy notice and authorization requirements. This form does not authorize a credit check.</p><h3>Your choices</h3><p>This form requests follow-up about your inquiry; it does not enroll you in optional marketing texts. To ask about access, correction, or deletion of your submitted information, or to change your contact preference, call <a href="tel:+13122874144">(312) 287-4144</a>.</p>`,
   },
   terms: {
-    title: "Terms & Consent",
-    body: `
-      <h3>No Obligation</h3>
-      <p>Submitting information through this website does not require you to purchase insurance or enroll in any product. Coverage is not guaranteed.</p>
-      <h3>Phone And Text Consent</h3>
-      <p>By submitting your information, you agree that Cornerstone Life Group and/or Carlos Vasquez may call or text you at the number provided about final expense and life insurance options. Consent is not required to purchase. Message and data rates may apply. Reply STOP to opt out of text messages.</p>
-      <h3>Coverage Availability</h3>
-      <p>Quotes, eligibility, rates, benefits, and coverage are subject to carrier underwriting, product availability, state availability, and final approval. Any examples or options discussed are not guarantees of coverage.</p>
-      <h3>Government Affiliation</h3>
-      <p>Cornerstone Life Group is not affiliated with Medicare, Social Security, or any government agency.</p>
-      <h3>Licensed Service States</h3>
-      <p>Cornerstone Life Group currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois. Product availability may vary by state and carrier.</p>
-    `,
+    title: "Funding disclosures",
+    body: `<h3>Our role</h3><p>Cornerstone Life Group is a business funding broker and referral partner, not a direct lender. We help business owners explore potential options through funding providers. Providers determine eligibility, approval, available products, and terms.</p><h3>An inquiry is a starting point</h3><p>Submitting this form is not a credit application, a credit check authorization, an approval, or a commitment to fund. An inquiry creates no obligation to accept a funding offer. Products and service availability vary by provider, location, and business circumstances.</p><h3>Review the complete terms</h3><p>No funding amount, timing, cost, or approval outcome is guaranteed. Before proceeding, review the provider’s written terms, including total costs, fees, repayment schedule, collateral, and any personal guarantee. Ask Carlos about any broker or referral compensation and any fee that may apply to you.</p><h3>Contact</h3><p>Questions about this website or your inquiry? Call Carlos Vasquez at <a href="tel:+13122874144">(312) 287-4144</a>.</p>`,
   },
 };
-
-function showPage(pageNumber) {
-  pages.forEach((page) => {
-    page.classList.toggle("active", Number(page.dataset.page) === pageNumber);
-  });
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function collectFormData(form) {
-  return Object.fromEntries(new FormData(form).entries());
-}
-
-function getTrackingFields() {
-  const params = new URLSearchParams(window.location.search);
-  const pageDefaults = document.body.dataset;
-
-  return {
-    utm_source: params.get("utm_source") || "",
-    utm_medium: params.get("utm_medium") || "",
-    utm_campaign: params.get("utm_campaign") || "",
-    utm_content: params.get("utm_content") || "",
-    utm_term: params.get("utm_term") || "",
-    niche: params.get("niche") || pageDefaults.niche || "",
-    product_type: params.get("product_type") || pageDefaults.productType || "",
-    landing_url: window.location.href,
-    landing_page: window.location.pathname,
-    referring_page: document.referrer || "",
-  };
-}
-
-function isLocalPreview() {
-  return ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
-}
-
-function setStatusMessage(element, message) {
-  if (!element) {
-    return;
-  }
-
-  element.textContent = message;
-  element.classList.toggle("visible", Boolean(message));
-}
-
-function buildSubmissionSubject(submissionType) {
-  const leadName = [leadData.firstName, leadData.lastName]
-    .filter(Boolean)
-    .join(" ")
-    .trim();
-  const leadSource = formatSubjectSegment(
-    leadData.niche || trackingFields.niche || "final expense",
-  );
-
-  return leadName
-    ? `${submissionType === "enrichment" ? "Lead Update" : "New Lead"} - ${leadSource} - ${leadName}`
-    : `${submissionType === "enrichment" ? "Lead Update" : "New Lead"} - ${leadSource}`;
-}
-
-function formatSubjectSegment(value) {
-  return value
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
-
-function buildLeadPayload(submissionType) {
-  return {
-    subject: buildSubmissionSubject(submissionType),
-    submission_type: submissionType,
-    ...leadData,
-    ...trackingFields,
-    submitted_at: new Date().toISOString(),
-  };
-}
-
-async function submitLead(submissionType = "lead") {
-  const payload = buildLeadPayload(submissionType);
-
-  if (isLocalPreview()) {
-    window.__leadPayloads = window.__leadPayloads || [];
-    window.__leadPayloads.push(payload);
-    window.__lastLeadPayload = payload;
-    document.documentElement.dataset.lastLeadPayload = JSON.stringify(payload);
-    console.table(payload);
-    return;
-  }
-
-  const response = await fetch("/api/lead", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  const responsePayload = await response.json();
-
-  console.log("Lead submission response:", {
-    status: response.status,
-    ok: response.ok,
-    payload: responsePayload,
-  });
-
-  if (!response.ok || responsePayload.ok !== true) {
-    throw new Error(responsePayload.error || "Lead submission failed.");
-  }
-}
-
-function resetTurnstile() {
-  if (window.turnstile && typeof window.turnstile.reset === "function") {
-    window.turnstile.reset();
-  }
-}
-
-function getPreferenceConfirmation() {
-  const preference = leadData.contactPreference;
-
-  if (preference === "call") {
-    return "Carlos will call you shortly.";
-  }
-
-  if (preference === "text") {
-    return "Carlos will text you shortly.";
-  }
-
-  return "";
-}
-
-function hasEnrichmentAnswer(formData) {
-  return ["existingCoverage", "goal", "beneficiaryIntent", "timeframe"].some(
-    (field) => Boolean(formData[field]),
-  );
-}
-
-function openModal(modalName) {
-  const content = modalContent[modalName];
-
-  if (!content) {
-    return;
-  }
-
-  legalModalTitle.textContent = content.title;
-  legalModalContent.innerHTML = content.body;
-  legalModal.classList.add("open");
-  legalModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-}
-
-function closeModal() {
-  legalModal.classList.remove("open");
-  legalModal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
-}
-
-function openVideoModal() {
-  introVideo.src = introVideo.dataset.src;
-  videoModal.classList.add("open");
-  videoModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-}
-
-function closeVideoModal() {
-  videoModal.classList.remove("open");
-  videoModal.setAttribute("aria-hidden", "true");
-  introVideo.src = "";
-  document.body.classList.remove("modal-open");
-}
-
-leadForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  Object.assign(leadData, collectFormData(leadForm));
-  setStatusMessage(submissionError, "");
-  leadSubmitButton.disabled = true;
-  leadSubmitButton.textContent = "Submitting...";
-
-  submitLead("lead")
-    .then(() => {
-      showPage(2);
-    })
-    .catch((error) => {
-      console.error("Lead submission frontend error:", error);
-      resetTurnstile();
-      setStatusMessage(
-        submissionError,
-        "We could not submit your request just now. Please try again or call/text 312-287-4144.",
-      );
-    })
-    .finally(() => {
-      leadSubmitButton.disabled = false;
-      leadSubmitButton.textContent = "See My Options";
-    });
-});
-
-qualifyingForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const optionalAnswers = collectFormData(qualifyingForm);
-
-  setStatusMessage(enrichmentError, "");
-  setStatusMessage(optionalSuccess, "");
-
-  if (!hasEnrichmentAnswer(optionalAnswers)) {
-    setStatusMessage(
-      enrichmentError,
-      "Choose any optional answer you want to send, or skip this section.",
-    );
-    return;
-  }
-
-  Object.assign(leadData, optionalAnswers);
-  qualifyingSubmitButton.disabled = true;
-  qualifyingSubmitButton.textContent = "Sending...";
-
-  submitLead("enrichment")
-    .then(() => {
-      setStatusMessage(
-        optionalSuccess,
-        "Thanks - Carlos has your optional answers.",
-      );
-      qualifyingForm.classList.add("is-complete");
-      qualifyingSubmitButton.textContent = "Answers Sent";
-    })
-    .catch((error) => {
-      console.error("Lead enrichment frontend error:", error);
-      setStatusMessage(
-        enrichmentError,
-        "Your request is already received, but these optional answers did not send. You can try again or share them with Carlos directly.",
-      );
-    })
-    .finally(() => {
-      if (!qualifyingForm.classList.contains("is-complete")) {
-        qualifyingSubmitButton.disabled = false;
-        qualifyingSubmitButton.textContent = "Send Optional Answers";
-      }
-    });
-});
-
-preferenceForm.addEventListener("change", (event) => {
-  if (event.target.name !== "contactPreference") {
-    return;
-  }
-
-  Object.assign(leadData, collectFormData(preferenceForm));
-  setStatusMessage(preferenceStatus, "Saving your preference...");
-
-  submitLead("enrichment")
-    .then(() => {
-      setStatusMessage(preferenceStatus, `✓ ${getPreferenceConfirmation()}`);
-    })
-    .catch((error) => {
-      console.error("Preference enrichment frontend error:", error);
-      setStatusMessage(
-        preferenceStatus,
-        `${getPreferenceConfirmation()} Your request is already received, but this preference did not save automatically.`,
-      );
-    });
-});
-
-skipOptionalButton.addEventListener("click", () => {
-  optionalCoverageSection.classList.add("is-collapsed");
-  setStatusMessage(
-    optionalSuccess,
-    "No problem - your request has already been received.",
-  );
-});
-
-document.querySelectorAll("[data-next]").forEach((button) => {
+const dialog = document.querySelector("#legal-dialog");
+document.querySelectorAll("[data-legal]").forEach((button) =>
   button.addEventListener("click", () => {
-    showPage(Number(button.dataset.next));
-  });
-});
-
-document.querySelectorAll("[data-back]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showPage(Number(button.dataset.back));
-  });
-});
-
-if (playButton) {
-  playButton.addEventListener("click", openVideoModal);
-}
-
-document.querySelectorAll("[data-modal]").forEach((button) => {
-  button.addEventListener("click", () => {
-    openModal(button.dataset.modal);
-  });
-});
-
-document.querySelectorAll("[data-close-modal]").forEach((element) => {
-  element.addEventListener("click", closeModal);
-});
-
-document.querySelectorAll("[data-close-video-modal]").forEach((element) => {
-  element.addEventListener("click", closeVideoModal);
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && legalModal.classList.contains("open")) {
-    closeModal();
-  }
-
-  if (event.key === "Escape" && videoModal.classList.contains("open")) {
-    closeVideoModal();
+    const content = legal[button.dataset.legal];
+    document.querySelector("#legal-title").textContent = content.title;
+    document.querySelector("#legal-body").innerHTML = content.body;
+    dialog.showModal();
+  }),
+);
+document
+  .querySelector(".dialog-close")
+  .addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (event) => {
+  if (event.target === dialog) {
+    const rect = dialog.getBoundingClientRect();
+    if (
+      event.clientX < rect.left ||
+      event.clientX > rect.right ||
+      event.clientY < rect.top ||
+      event.clientY > rect.bottom
+    )
+      dialog.close();
   }
 });
+document.querySelector("#year").textContent = new Date().getFullYear();
+const mobileCTA = document.querySelector(".mobile-cta");
+new IntersectionObserver(
+  (entries) => {
+    mobileCTA.classList.toggle("is-hidden", entries[0].isIntersecting);
+  },
+  { threshold: 0 },
+).observe(document.querySelector("#inquiry"));
