@@ -2169,3 +2169,8 @@ dialog a {
     overflow: visible;
   }
 }
+
+/* Let the label carry the action. */
+.button {
+  justify-content: center;
+}
