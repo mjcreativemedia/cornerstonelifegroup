@@ -1,0 +1,247 @@
+[
+  {
+    "slug": "funding-basics",
+    "title": "Business funding, in plain English",
+    "description": "Understand common funding types and match the purpose to the way you repay.",
+    "illustration": "equipment",
+    "takeaway": "The purpose tells you what the money is for. The product tells you how the agreement works.",
+    "sections": [
+      {
+        "id": "start",
+        "title": "Start with the job the money needs to do",
+        "body": "<p>“Business funding” means money used to run or grow a business. It can come from savings, investors, borrowing, or other arrangements. Borrowing creates repayment obligations; selling ownership gives someone a stake in the business. Neither is free money.</p><p>Write one sentence before comparing products: “I need money for ___, and it will help my business by ___.” A specific purpose makes the amount and repayment plan easier to question.</p>"
+      },
+      {
+        "id": "types",
+        "title": "A quick map of common arrangements",
+        "body": "<div class=\"table-scroll\"><table><thead><tr><th>Type</th><th>Plain meaning</th><th>Tradeoff to examine</th></tr></thead><tbody><tr><th>Term loan</th><td>A lump sum repaid over a set period.</td><td>You owe payments even if the purchase earns less than expected.</td></tr><tr><th>Line of credit</th><td>Borrow up to a limit as needed, subject to the agreement.</td><td>Check draw fees, interest, renewal, and when repayment is due.</td></tr><tr><th>Invoice factoring</th><td>Sell eligible unpaid invoices at a discount.</td><td>Fees reduce what you receive; ask who collects and who bears nonpayment risk.</td></tr><tr><th>Merchant cash advance</th><td>Upfront money tied to future business receipts.</td><td>Frequent collections and factor pricing can be costly and strain cash flow.</td></tr></tbody></table></div><p class=\"source-note\">Background: <a href=\"https://www.federalreserve.gov/publications/2025-march-consumer-community-context.htm\">Federal Reserve overview of small business credit</a> and <a href=\"https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues\">FTC discussion of financing tradeoffs</a>. These are educational examples, not confirmed Cornerstone offerings.</p>"
+      },
+      {
+        "id": "equipment",
+        "title": "Equipment: think beyond the purchase price",
+        "body": "<p>Equipment financing generally helps pay for eligible equipment; a lease pays for its use under a contract. Ask about ownership, maintenance, insurance, end-of-term payments, and whether the equipment secures the obligation. Collateral is an asset a provider may be able to claim if you default.</p><div class=\"example\"><strong>Example, not an offer</strong><p>A $20,000 machine may also need delivery, installation, and training. A payment that looks manageable can become difficult if the machine sits idle. Compare the complete project cost with conservative expected earnings.</p></div>"
+      },
+      {
+        "id": "inventory",
+        "title": "Inventory: consider when stock becomes cash",
+        "body": "<p>Stock has to sell before it can repay funding. Estimate how long items may sit, what discounts might be needed, and what happens to unsold goods. An inventory purchase and the financing used to pay for it are separate decisions.</p><p>For a seasonal order, map supplier payment dates against realistic customer payment dates. A short repayment schedule may begin before the sales arrive.</p>"
+      },
+      {
+        "id": "growth",
+        "title": "Expansion: include the ramp-up period",
+        "body": "<p>A new location or a larger team can add rent, deposits, hiring, and setup costs before revenue grows. Compare a smaller pilot, a phased opening, or waiting with funding the whole plan now.</p><p>Some businesses also explore SBA-backed loans through participating lenders. A government guarantee protects the lender in specified circumstances; it is not a grant or a promise that you qualify. Your business still owes the loan. See <a href=\"https://www.sba.gov/loans/\">SBA loan information</a> for current program details.</p><p>Next, learn <a href=\"/resources/comparing-funding-costs/\">how to compare the full cost</a> and <a href=\"/resources/cash-flow-and-repayment/\">whether repayments fit your cash flow</a>.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.federalreserve.gov/publications/2025-march-consumer-community-context.htm",
+        "Federal Reserve: Small Business Credit"
+      ],
+      [
+        "https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues",
+        "FTC: Small business financing"
+      ],
+      [
+        "https://www.sba.gov/loans/",
+        "SBA: Loans"
+      ]
+    ],
+    "updated": "2026-11-03"
+  },
+  {
+    "slug": "comparing-funding-costs",
+    "title": "What does funding really cost?",
+    "description": "Look beyond the headline rate: cash received, fees, repayment, and timing.",
+    "illustration": "options",
+    "takeaway": "Compare the cash you actually receive with everything you must pay—and when.",
+    "sections": [
+      {
+        "id": "four-numbers",
+        "title": "Put four numbers side by side",
+        "body": "<p>Two offers can advertise similar amounts and still leave very different room in your budget. Ask each provider for the same information in writing.</p><div class=\"comparison-flow\"><div><strong>Cash received</strong><span>After withheld fees</span></div><div><strong>Total payments</strong><span>Including required fees</span></div><div><strong>Payment schedule</strong><span>Daily, weekly, or monthly</span></div><div><strong>Term</strong><span>How long payments last</span></div></div><p>“Principal” is the amount borrowed. An origination fee is a charge for arranging or making the financing. If it is deducted upfront, the amount deposited can be smaller than the stated funding amount.</p>"
+      },
+      {
+        "id": "example",
+        "title": "A simple dollar-cost example",
+        "body": "<div class=\"example\"><strong>Illustration only • not a quote or APR calculation</strong><div class=\"money-equation\"><div><span>Stated amount</span><strong>$20,000</strong></div><b>−</b><div><span>Withheld fee</span><strong>$1,000</strong></div><b>=</b><div><span>Cash received</span><strong>$19,000</strong></div></div><p>If required repayments total $24,000, the dollar cost relative to cash received is $5,000: $24,000 − $19,000. Additional required charges would increase that cost.</p></div><p>This comparison does not account for time. Paying $24,000 over six months creates a different burden from paying it over two years. The figures above are invented solely to show the arithmetic.</p>"
+      },
+      {
+        "id": "rate",
+        "title": "Interest rate, APR, and factor rate are different",
+        "body": "<p>An interest rate describes a borrowing charge. APR—annual percentage rate—expresses an annualized cost and may include certain fees. Ask what a quoted APR includes.</p><p>A factor rate is a multiplier, not an annual percentage. In a simplified example, $20,000 × 1.20 = $24,000 in scheduled payments before additional charges. That is not a 20% APR: time and repayment timing still matter.</p><p>Financing disclosures vary, so a headline rate alone may not allow a fair comparison. <a href=\"https://www.federalreserve.gov/publications/2025-march-consumer-community-context.htm\">The Federal Reserve explains the distinction</a>. Ask for an annualized comparison and the written payment schedule rather than converting a factor rate directly to a percentage APR.</p>"
+      },
+      {
+        "id": "terms",
+        "title": "Ask what changes the cost",
+        "body": "<ul><li><strong>Paying early:</strong> Does it reduce interest or the contracted amount, or is there a penalty?</li><li><strong>Variable pricing:</strong> Can the rate change, and what happens to payments?</li><li><strong>Missed payments:</strong> What late charges, default triggers, or collection costs apply?</li><li><strong>Broker compensation:</strong> Who receives a fee, who pays it, and is it refundable?</li></ul><p>Get a complete agreement before deciding. If you cannot explain the total cost and collection schedule in your own words, pause and ask for clarification.</p>"
+      },
+      {
+        "id": "compare",
+        "title": "A cheaper-looking offer can still be the wrong fit",
+        "body": "<p>A smaller total repayment is not automatically easier to manage if payments are collected much sooner. Compare both cost and the cash left to operate. Avoid comparing one offer’s monthly payment with another offer’s daily collection.</p><p>Continue with <a href=\"/resources/cash-flow-and-repayment/\">the cash-flow walkthrough</a>, then use <a href=\"/resources/brokers-lenders-and-questions/\">the provider question list</a> before you sign.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.federalreserve.gov/publications/2025-march-consumer-community-context.htm",
+        "Federal Reserve: Pricing and repayment considerations"
+      ],
+      [
+        "https://www.sba.gov/loans/lender-match/",
+        "SBA: Questions to ask a lender"
+      ]
+    ],
+    "updated": "2026-11-03"
+  },
+  {
+    "slug": "getting-ready",
+    "title": "What providers look at—and how to prepare",
+    "description": "A practical starting checklist for revenue, records, credit, and repayment.",
+    "illustration": "inquire",
+    "takeaway": "Being prepared helps you explain your business. It does not guarantee approval.",
+    "sections": [
+      {
+        "id": "review",
+        "title": "What a provider is trying to understand",
+        "body": "<p>Requirements vary. There is no single revenue amount, credit score, or time-in-business rule that qualifies every business for every product. A provider generally wants to understand the purpose, your business history, and how repayment would work.</p><p>Credit history can inform how a provider assesses risk. Financial projections show assumptions about future income and expenses; collateral may support an obligation. Ask each provider about its actual standards. <a href=\"https://www.sba.gov/loans/lender-match/\">SBA’s Lender Match preparation checklist</a> outlines common questions, not universal approval rules.</p>"
+      },
+      {
+        "id": "records",
+        "title": "Gather records before an application",
+        "body": "<div class=\"preparation-grid\"><div><strong>Your business</strong><p>Legal name, ownership, industry, and time operating.</p></div><div><strong>Your finances</strong><p>Current revenue, expenses, debts, and cash balance.</p></div><div><strong>Your purpose</strong><p>Amount needed, intended use, and supporting estimates.</p></div><div><strong>Your plan</strong><p>Expected payment source and a slower-sales scenario.</p></div></div><p>Depending on the provider and product, a later application may request bank statements, tax returns, identification, financial statements, or equipment quotes. Ask for a specific list rather than guessing a required number of months.</p><p>A profit-and-loss statement summarizes income and expenses over a period. A balance sheet shows assets, debts, and ownership value at a point in time. Accurate, current records are more useful than an optimistic sales pitch.</p>"
+      },
+      {
+        "id": "new",
+        "title": "If your business is new",
+        "body": "<p>A pre-launch business may have little operating history for a provider to assess. Explain the plan, owner investment, expected costs, and the basis for sales estimates. Do not label projected revenue as money you have already earned.</p><div class=\"example\"><strong>Example</strong><p>A new bakery expects $15,000 in monthly sales. That is a forecast, not a sales record. Separate existing cash, signed customer orders, and assumptions about walk-in sales so a reviewer can understand the uncertainty.</p></div><p>A smaller launch, more time building records, or independent business counseling may be a better next step than immediate borrowing. Preparation can reveal reasons to wait.</p>"
+      },
+      {
+        "id": "credit",
+        "title": "Ask about credit checks and information sharing",
+        "body": "<p>For personal credit, a soft inquiry generally does not affect scores; a hard inquiry can. Ask the provider which review it uses, whose credit it checks, and when separate authorization is needed. See the <a href=\"https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-inquiry-en-1317/\">CFPB’s explanation of credit inquiries</a>. Do not assume every funding inquiry has the same credit effect.</p><p>Cornerstone’s introductory form is not a credit application and does not authorize a credit check. It asks for basic business and contact details. Do not send Social Security numbers, bank account numbers, statements, or identification through it.</p><p>If you proceed, confirm the recipient and use the provider’s protected application process for sensitive materials. Keep copies of what you authorize and submit.</p>"
+      },
+      {
+        "id": "next",
+        "title": "Check readiness before checking eligibility",
+        "body": "<p>Can you explain how much you need, why, and how payments will be covered? If not, begin with <a href=\"/resources/cash-flow-and-repayment/\">a cash-flow sketch</a>. If you have an offer, use <a href=\"/resources/comparing-funding-costs/\">the cost comparison guide</a>.</p><p>You can also seek independent help from an <a href=\"https://www.sba.gov/local-assistance\">SBA resource partner</a>. That is an outside resource, not a Cornerstone affiliation.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.sba.gov/loans/lender-match/",
+        "SBA: Preparing to speak with lenders"
+      ],
+      [
+        "https://www.sba.gov/counseling/manage-your-business/",
+        "SBA: Managing business finances"
+      ],
+      [
+        "https://www.sba.gov/local-assistance",
+        "SBA: Local assistance"
+      ],
+      [
+        "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-inquiry-en-1317/",
+        "CFPB: Credit inquiries"
+      ]
+    ],
+    "updated": "2026-11-03"
+  },
+  {
+    "slug": "cash-flow-and-repayment",
+    "title": "Can the repayments fit your cash flow?",
+    "description": "Map the timing of money in and money out before taking on payments.",
+    "illustration": "cash-flow",
+    "takeaway": "Revenue is not the same as cash available to repay funding. Timing matters.",
+    "sections": [
+      {
+        "id": "working-capital",
+        "title": "Understand working capital first",
+        "body": "<p>Working capital is commonly defined as current assets minus current liabilities—resources expected to turn into cash within a year, minus obligations due within a year. “Working capital funding” often refers to financing everyday operations, not a single product.</p><p>Cash flow means when money actually enters and leaves your business. A sale on an unpaid invoice can count as revenue before the cash arrives. <a href=\"https://www.sba.gov/counseling/manage-your-business/\">SBA’s business finance guidance</a> distinguishes financial records and methods; <a href=\"https://www.fdic.gov/consumer-resource-center/money-smart-small-business\">FDIC’s Money Smart curriculum</a> includes cash-flow education.</p><p>Start with your bank balance and upcoming payment dates, not just a monthly sales total.</p>"
+      },
+      {
+        "id": "walkthrough",
+        "title": "Sketch the cash left after payments",
+        "body": "<div class=\"example\"><strong>One-month illustration • not an affordability threshold</strong><div class=\"cash-walk\"><div><span>Customer cash received</span><strong>$30,000</strong></div><div><span>Operating outflows</span><strong>− $24,000</strong></div><div><span>Existing debt payments</span><strong>− $2,000</strong></div><div><span>Proposed new payment</span><strong>− $2,500</strong></div><div class=\"cash-result\"><span>Cash left from this month’s activity</span><strong>$1,500</strong></div></div></div><p>This is not the ending bank balance; it excludes starting cash and any omitted inflows or outflows. Include taxes, owner withdrawals, irregular bills, and reserves in a real forecast. Avoid counting an existing payment twice if it is already included in operating outflows.</p>"
+      },
+      {
+        "id": "stress",
+        "title": "Try a slower-sales month",
+        "body": "<p>In the same illustration, customer receipts falling to $27,000 with every listed outflow unchanged would leave a $1,500 shortfall. The question becomes how the business would cover it—not just whether a provider would approve the funding.</p><p>Try a late customer payment, a repair bill, or a quiet season. These are your scenarios, not predictions. Consider a smaller purchase, different timing, supplier terms, or waiting if the plan only works with perfect sales.</p>"
+      },
+      {
+        "id": "timing",
+        "title": "Payment frequency changes the picture",
+        "body": "<div class=\"timing-diagram\"><div><strong>Customers pay</strong><span>At different points in the month</span></div><span aria-hidden=\"true\">↔</span><div><strong>Funding collects</strong><span>On the agreement’s schedule</span></div></div><p>A positive month can still include a cash shortage on a particular day. Put daily or weekly collections on the same calendar as payroll, rent, and expected receipts. Do not assume a fixed withdrawal will automatically fall when sales fall.</p><p>For sales-based arrangements, ask exactly how collections are calculated and whether adjustments for lower receipts are available under the contract. Request the procedure in writing.</p>"
+      },
+      {
+        "id": "decision",
+        "title": "A useful decision can be “not yet”",
+        "body": "<p>Funding can bridge a timing gap, but it does not by itself repair ongoing losses. If each ordinary month already uses more cash than it brings in, investigate the cause before adding payments.</p><p>Bring your forecast to an accountant or business counselor if the numbers are uncertain. Read <a href=\"/resources/comparing-funding-costs/\">the cost guide</a> to include fees, and <a href=\"/resources/getting-ready/\">the preparation guide</a> to organize records.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.fdic.gov/consumer-resource-center/money-smart-small-business",
+        "FDIC: Money Smart for Small Business"
+      ],
+      [
+        "https://www.sba.gov/counseling/manage-your-business/",
+        "SBA: Manage your finances"
+      ],
+      [
+        "https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues",
+        "FTC: Financing collection and repayment concerns"
+      ]
+    ],
+    "updated": "2026-11-03"
+  },
+  {
+    "slug": "brokers-lenders-and-questions",
+    "title": "Brokers, lenders, and questions worth asking",
+    "description": "Understand who does what, how compensation works, and what to ask before proceeding.",
+    "illustration": "conversation",
+    "takeaway": "Understand each party’s role, incentives, and agreement before sharing documents or accepting funding.",
+    "sections": [
+      {
+        "id": "roles",
+        "title": "Who does what?",
+        "body": "<div class=\"role-diagram\"><div><strong>You</strong><span>Explain the need and decide whether to proceed</span></div><span aria-hidden=\"true\">↔</span><div><strong>Broker / referral partner</strong><span>Helps explore or introduce potential providers</span></div><span aria-hidden=\"true\">↔</span><div><strong>Provider</strong><span>Reviews the application and determines any terms</span></div></div><p>A direct lender makes the loan. A broker helps arrange financing, while a referral partner introduces a potential provider. The exact services and obligations depend on the arrangement. Neither role, by itself, means the intermediary has reviewed every product on the market.</p><p>Cornerstone Life Group operates as a business funding broker and referral partner, not a direct lender. Carlos can discuss your needs and possible next steps. Cornerstone does not determine a provider’s approval or terms.</p>"
+      },
+      {
+        "id": "compensation",
+        "title": "Ask how everyone is paid",
+        "body": "<p>A broker or referral partner may be paid by a provider, by a business owner, or through another disclosed arrangement. Compensation can affect incentives. Do not assume there is no cost because no separate invoice appears.</p><p>Ask Carlos to explain the actual arrangement for an option: who pays, how much, when it is earned, and whether any amount is refundable. These questions describe what to clarify; they are not a claim about Cornerstone’s specific fees or provider relationships.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Six questions to take into a conversation",
+        "body": "<ol><li>Who is the provider, and who will service or collect the payments?</li><li>How much cash reaches my account, and what is the complete repayment obligation?</li><li>When are payments due, and what changes if sales slow?</li><li>Are there broker fees, collateral, or a personal guarantee?</li><li>What happens if I pay early, miss a payment, or want to stop the application?</li><li>Who gets my information, and what credit review am I authorizing?</li></ol><p>A personal guarantee can make the owner responsible for a business obligation; the scope depends on the agreement. Ask a qualified legal adviser about language you do not understand. <a href=\"https://www.sba.gov/loans/lender-match/\">SBA’s lender questions</a> are another useful starting point.</p>"
+      },
+      {
+        "id": "pause",
+        "title": "Recognize a reason to pause",
+        "body": "<p>Pause if someone guarantees approval before reviewing your business, pressures you to sign immediately, or will not provide complete costs and terms in writing. Be cautious about claims that a product cannot affect your credit or has no meaningful risk without an explanation of the actual agreement.</p><p>The <a href=\"https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues\">FTC has identified misleading practices and confusing pricing</a> in small business financing. Compare sources independently and verify a recipient before sending sensitive records. Suspected fraud can be reported through <a href=\"https://reportfraud.ftc.gov/\">ReportFraud.ftc.gov</a>.</p>"
+      },
+      {
+        "id": "example",
+        "title": "What a helpful conversation sounds like",
+        "body": "<div class=\"example\"><strong>Illustrative conversation</strong><p>“I need equipment, but sales are seasonal. Can we review the total cost, when payments start, what secures the agreement, and what happens in a slow month?”</p></div><p>That question invites a practical discussion rather than a promise. Use <a href=\"/resources/funding-basics/\">the funding basics guide</a> for terminology and <a href=\"/resources/comparing-funding-costs/\">the cost guide</a> to compare written offers. You can keep learning without submitting an inquiry.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.sba.gov/loans/lender-match/",
+        "SBA: What to ask lenders"
+      ],
+      [
+        "https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues",
+        "FTC: Small business financing concerns"
+      ],
+      [
+        "https://reportfraud.ftc.gov/",
+        "FTC: Report fraud"
+      ]
+    ],
+    "updated": "2026-11-03"
+  }
+]

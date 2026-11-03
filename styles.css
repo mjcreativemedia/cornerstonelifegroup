@@ -1464,3 +1464,708 @@ dialog a {
     align-self: start;
   }
 }
+/* Education comes first. The optional inquiry has its own quiet page. */
+.learn-hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 55px;
+  align-items: center;
+  padding: 77px 0 82px;
+}
+.learn-hero h1 {
+  font-size: clamp(43px, 4.2vw, 64px);
+  max-width: 730px;
+  letter-spacing: -2.6px;
+}
+.learn-hero .hero-description {
+  max-width: 480px;
+}
+.learning-art {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  justify-self: end;
+}
+.learn-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.learn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #e0e8da;
+}
+.learn-secondary .carlos-selfie {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 37%;
+  border: 1px solid #d9b77280;
+}
+.section-intro {
+  margin-top: 17px;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 420px;
+}
+.resource-section {
+  background: #eef0e8;
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.resource-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 23px;
+  background: var(--paper);
+  border-radius: 9px;
+  transition: background 0.2s;
+}
+.resource-card:hover {
+  background: #e5ebdd;
+}
+.resource-card img {
+  width: 90px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.resource-card > span {
+  font-size: 20px;
+  margin-left: auto;
+  color: #849479;
+}
+.resource-card h3 {
+  font-size: 19px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+.resource-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-top: 9px;
+}
+.resource-grid .resource-card:last-child:nth-child(odd) {
+  grid-column: 1/-1;
+}
+.resource-grid .resource-card:last-child:nth-child(odd) > div {
+  max-width: 650px;
+}
+.learning-contact {
+  text-align: center;
+}
+.learning-contact h2 {
+  font-size: 33px;
+}
+.learning-contact p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 19px auto 24px;
+}
+.breadcrumb {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+.breadcrumb:hover {
+  color: var(--green);
+}
+.resource-hub h1 {
+  font-size: 52px;
+  letter-spacing: -2px;
+  max-width: 750px;
+}
+.hub-description {
+  font-size: 17px;
+  color: var(--muted);
+  margin: 24px 0 42px;
+}
+.resource-hub .resource-card {
+  background: #eef0e8;
+}
+.inquiry-page {
+  padding: 40px 0 70px;
+}
+.consult-grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 85px;
+  align-items: start;
+}
+.consult-grid h1 {
+  font-size: 48px;
+  letter-spacing: -2px;
+  margin-top: 25px;
+}
+.consult-grid > div > p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 400px;
+  margin-top: 25px;
+}
+.consult-grid > div > .quiet-note {
+  font-size: 12px;
+  line-height: 1.9;
+}
+.consult-grid .text-link {
+  margin-top: 30px;
+}
+.consult-grid .inquiry {
+  border: 1px solid var(--line);
+  box-shadow: none;
+  background: #f0f1e9;
+}
+.guide-page {
+  padding: 40px 0 70px;
+}
+.guide-heading {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 65px;
+  align-items: center;
+  margin: 15px 0 55px;
+  max-width: 1120px;
+}
+.guide-heading h1 {
+  font-size: 49px;
+  letter-spacing: -1.9px;
+  max-width: 800px;
+  line-height: 1.15;
+}
+.guide-heading > div > p:last-child {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 660px;
+  margin-top: 23px;
+}
+.reading-time {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+.guide-heading img {
+  width: 100%;
+  height: auto;
+}
+.reading-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 720px);
+  gap: 75px;
+  align-items: start;
+}
+.guide-toc {
+  font-size: 12px;
+  position: sticky;
+  top: 35px;
+  display: grid;
+  gap: 14px;
+  padding: 5px 0;
+}
+.guide-toc strong {
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+.guide-toc a {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.guide-toc a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+.guide-body {
+  min-width: 0;
+}
+.guide-body p,
+.guide-body li {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #53675c;
+}
+.guide-body p {
+  margin: 17px 0;
+}
+.guide-body h2 {
+  font-size: 29px;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.guide-body h3 {
+  font-size: 20px;
+  margin: 25px 0 12px;
+}
+.guide-body section {
+  margin-top: 45px;
+  scroll-margin-top: 35px;
+}
+.guide-body a,
+.optional-help a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.guide-body ul,
+.guide-body ol {
+  padding-left: 23px;
+}
+.guide-body li {
+  padding-left: 4px;
+  margin-bottom: 12px;
+}
+.key-idea,
+.example {
+  background: #eef0e8;
+  padding: 25px 28px;
+  border-radius: 9px;
+}
+.key-idea > strong,
+.example > strong {
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+.key-idea p {
+  font-size: 18px;
+  color: var(--green);
+  line-height: 1.6;
+  margin: 10px 0 0;
+}
+.example p:last-child {
+  margin-bottom: 0;
+}
+.guide-body .source-note {
+  font-size: 11px;
+  line-height: 1.8;
+}
+.table-scroll {
+  overflow-x: auto;
+}
+.guide-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.guide-body th,
+.guide-body td {
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.guide-body thead {
+  background: #eef0e8;
+}
+.guide-body tbody th {
+  font-weight: 600;
+  min-width: 110px;
+}
+.guide-body td {
+  color: var(--muted);
+}
+.comparison-flow,
+.preparation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+.comparison-flow > div,
+.preparation-grid > div {
+  background: #eef0e8;
+  border-radius: 8px;
+  padding: 18px;
+}
+.comparison-flow strong,
+.preparation-grid strong {
+  display: block;
+  font-size: 15px;
+}
+.comparison-flow span {
+  font-size: 12px;
+  color: var(--muted);
+  display: block;
+  margin-top: 8px;
+}
+.preparation-grid p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 8px 0 0;
+}
+.money-equation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+.money-equation span {
+  font-size: 10px;
+  display: block;
+}
+.money-equation strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.money-equation b {
+  color: #9a7d43;
+  font-size: 23px;
+}
+.cash-walk {
+  margin-top: 20px;
+}
+.cash-walk > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+  font-size: 13px;
+}
+.cash-result {
+  margin-top: 10px;
+  border-top: 1px solid #cad2c0;
+  color: var(--green);
+}
+.timing-diagram,
+.role-diagram {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 25px 0;
+}
+.timing-diagram > div,
+.role-diagram > div {
+  flex: 1;
+  background: #eef0e8;
+  border-radius: 8px;
+  padding: 20px 15px;
+}
+.timing-diagram strong,
+.role-diagram strong {
+  display: block;
+  font-size: 14px;
+}
+.timing-diagram div span,
+.role-diagram div span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 9px;
+  color: var(--muted);
+}
+.guide-body .guide-sources {
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+.guide-sources h2 {
+  font-size: 20px;
+}
+.guide-sources p,
+.guide-sources li {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.related-reading {
+  margin-top: 80px;
+}
+.related-reading > h2 {
+  font-size: 29px;
+  margin-bottom: 25px;
+}
+.related-reading .resource-card {
+  background: #eef0e8;
+}
+.optional-help {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 35px;
+}
+.guide-page ~ footer {
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 1000px) {
+  .learn-hero-grid {
+    gap: 25px;
+  }
+  .learn-hero h1 {
+    font-size: 48px;
+  }
+  .learn-actions {
+    gap: 18px;
+  }
+  .reading-layout {
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 40px;
+  }
+  .guide-heading {
+    gap: 30px;
+  }
+  .guide-heading h1 {
+    font-size: 42px;
+  }
+  .consult-grid {
+    grid-template-columns: 1fr 390px;
+    gap: 35px;
+  }
+  .consult-grid h1 {
+    font-size: 39px;
+  }
+  .resource-card {
+    padding: 20px;
+    gap: 10px;
+  }
+  .resource-card img {
+    width: 65px;
+  }
+  .resource-card h3 {
+    font-size: 17px;
+  }
+}
+@media (max-width: 700px) {
+  .learn-hero-grid {
+    grid-template-columns: 1fr;
+    padding: 43px 0 35px;
+    gap: 18px;
+  }
+  .learn-hero h1 {
+    font-size: clamp(39px, 9.7vw, 57px);
+    letter-spacing: -2px;
+  }
+  .learn-hero .hero-description {
+    font-size: 15px;
+    margin-top: 24px;
+  }
+  .learning-art {
+    width: 240px;
+    justify-self: center;
+    margin-top: 8px;
+  }
+  .learn-actions {
+    gap: 20px;
+    margin-top: 26px;
+  }
+  .learn-actions .button {
+    padding: 13px 17px;
+    font-size: 12px;
+  }
+  .learn-secondary {
+    font-size: 12px;
+  }
+  .resource-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .resource-grid .resource-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+  .resource-card {
+    padding: 18px;
+    gap: 12px;
+  }
+  .resource-card img {
+    width: 72px;
+    height: 70px;
+  }
+  .resource-card h3 {
+    font-size: 18px;
+  }
+  .resource-card p {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .resource-section .section-heading .text-link {
+    margin-top: 24px;
+  }
+  .learning-contact h2 {
+    font-size: 29px;
+  }
+  .learning-contact p {
+    font-size: 13px;
+  }
+  .resource-hub h1 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+  .hub-description {
+    font-size: 15px;
+  }
+  .guide-page {
+    padding-top: 25px;
+  }
+  .guide-heading {
+    grid-template-columns: 1fr 95px;
+    gap: 12px;
+    margin: 0 0 30px;
+    align-items: start;
+  }
+  .guide-heading h1 {
+    font-size: 32px;
+    letter-spacing: -1.1px;
+  }
+  .guide-heading > div > p:last-child {
+    font-size: 14px;
+    margin-top: 17px;
+  }
+  .guide-heading img {
+    margin-top: 36px;
+  }
+  .reading-time {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .reading-layout {
+    display: block;
+  }
+  .guide-toc {
+    position: static;
+    padding: 18px;
+    background: #eef0e8;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .guide-toc strong {
+    font-size: 10px;
+  }
+  .guide-body h2 {
+    font-size: 25px;
+  }
+  .guide-body p,
+  .guide-body li {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .guide-body section {
+    margin-top: 35px;
+  }
+  .key-idea,
+  .example {
+    padding: 21px;
+  }
+  .key-idea p {
+    font-size: 17px;
+  }
+  .comparison-flow,
+  .preparation-grid {
+    gap: 9px;
+  }
+  .comparison-flow > div,
+  .preparation-grid > div {
+    padding: 14px;
+  }
+  .comparison-flow strong,
+  .preparation-grid strong {
+    font-size: 13px;
+  }
+  .preparation-grid p {
+    font-size: 12px;
+  }
+  .money-equation {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .money-equation strong {
+    font-size: 22px;
+  }
+  .money-equation span {
+    font-size: 9px;
+  }
+  .cash-walk > div {
+    font-size: 12px;
+  }
+  .cash-walk > div strong {
+    white-space: nowrap;
+  }
+  .role-diagram {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .role-diagram > span {
+    text-align: center;
+  }
+  .role-diagram > div {
+    padding: 15px;
+  }
+  .timing-diagram {
+    gap: 8px;
+  }
+  .timing-diagram > div {
+    padding: 15px 10px;
+  }
+  .timing-diagram strong {
+    font-size: 12px;
+  }
+  .timing-diagram div span {
+    font-size: 11px;
+  }
+  .related-reading {
+    margin-top: 50px;
+  }
+  .consult-grid {
+    display: block;
+  }
+  .consult-grid h1 {
+    font-size: 38px;
+    margin-top: 0;
+  }
+  .consult-grid > div > p {
+    font-size: 15px;
+  }
+  .consult-grid .inquiry {
+    margin-top: 35px;
+  }
+  .inquiry-page {
+    padding: 25px 0 45px;
+  }
+  footer {
+    padding-bottom: 30px;
+  }
+}
+@media print {
+  .header,
+  .guide-toc,
+  .related-reading,
+  footer,
+  dialog {
+    display: none !important;
+  }
+  .guide-page {
+    padding: 0;
+  }
+  .wrap {
+    width: 100%;
+  }
+  .reading-layout {
+    display: block;
+  }
+  .guide-heading {
+    display: block;
+  }
+  .guide-heading img {
+    display: none;
+  }
+  .guide-body section {
+    break-inside: avoid;
+  }
+  .table-scroll {
+    overflow: visible;
+  }
+}
