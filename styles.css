@@ -113,8 +113,8 @@ button {
 .brand-line {
   display: block;
   font-size: 10px;
-  letter-spacing: 4px;
-  margin-top: 4px;
+  letter-spacing: 2px;
+  margin-top: 6px;
 }
 .brand small {
   display: block;
@@ -1030,7 +1030,7 @@ dialog a {
   }
   .brand-line {
     font-size: 8px;
-    letter-spacing: 3px;
+    letter-spacing: 1.4px;
   }
   .brand small {
     font-size: 6px;
