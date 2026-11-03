@@ -32,8 +32,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=learn3" />
-    <script src="/site.js?v=learn1" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=learn4" />
+    <script src="/site.js?v=learn2" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -160,14 +160,29 @@
       <!-- RESOURCE_LIBRARY -->
       <section class="section about" id="about">
         <div class="wrap about-grid">
-          <div class="portrait-frame">
-            <img
-              src="/Assets/carlos-portrait-main.PNG"
-              alt="Carlos Vasquez, Cornerstone Life Group"
-              width="512"
-              height="498"
-              loading="lazy"
-            />
+          <div class="portrait-frame has-video">
+            <video
+              class="carlos-loop"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="/Assets/carlos-loop-poster.jpg"
+              data-src="/Assets/carlos-loop.mp4"
+              aria-label="Silent video of Carlos Vasquez talking"
+            >
+              <img
+                src="/Assets/carlos-loop-poster.jpg"
+                alt="Carlos Vasquez"
+              /></video
+            ><button
+              class="motion-toggle"
+              type="button"
+              aria-label="Pause video of Carlos"
+            >
+              Pause
+            </button>
             <div class="portrait-label">
               <strong>Carlos Vasquez</strong
               ><span>CORNERSTONE BUSINESS FUNDING</span>

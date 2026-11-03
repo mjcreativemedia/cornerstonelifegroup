@@ -2174,3 +2174,26 @@ dialog a {
 .button {
   justify-content: center;
 }
+
+/* A quiet, silent portrait loop with an unobstructed name caption. */
+.portrait-frame.has-video .carlos-loop {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.portrait-frame.has-video .portrait-label {
+  position: static;
+}
+.motion-toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 1px solid #ffffff50;
+  border-radius: 20px;
+  background: #faf9f5e8;
+  color: #103d32;
+  padding: 5px 12px;
+  font-size: 10px;
+  line-height: 1.5;
+}

@@ -51,3 +51,56 @@ document.querySelectorAll('a[href^="/"]').forEach((link) => {
   });
   link.href = target.pathname + target.search + target.hash;
 });
+
+const portraitVideo = document.querySelector(".carlos-loop");
+if (portraitVideo) {
+  const motionButton = document.querySelector(".motion-toggle");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let pausedByVisitor =
+    reducedMotion.matches || navigator.connection?.saveData === true;
+  let inView = false;
+  function updateMotionLabel() {
+    const playing = !portraitVideo.paused;
+    motionButton.textContent = playing ? "Pause" : "Play";
+    motionButton.setAttribute(
+      "aria-label",
+      (playing ? "Pause" : "Play") + " silent video of Carlos",
+    );
+  }
+  function playPortrait() {
+    if (!portraitVideo.src) portraitVideo.src = portraitVideo.dataset.src;
+    portraitVideo.muted = true;
+    portraitVideo.play().catch(updateMotionLabel);
+  }
+  portraitVideo.addEventListener("play", updateMotionLabel);
+  portraitVideo.addEventListener("pause", updateMotionLabel);
+  motionButton.addEventListener("click", () => {
+    if (portraitVideo.paused) {
+      pausedByVisitor = false;
+      playPortrait();
+    } else {
+      pausedByVisitor = true;
+      portraitVideo.pause();
+    }
+  });
+  new IntersectionObserver(
+    (entries) => {
+      inView = entries[0].isIntersecting;
+      if (inView && !pausedByVisitor && !document.hidden) playPortrait();
+      else portraitVideo.pause();
+    },
+    { threshold: 0.15 },
+  ).observe(portraitVideo);
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      pausedByVisitor = true;
+      portraitVideo.pause();
+      updateMotionLabel();
+    }
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) portraitVideo.pause();
+    else if (inView && !pausedByVisitor) playPortrait();
+  });
+  updateMotionLabel();
+}
