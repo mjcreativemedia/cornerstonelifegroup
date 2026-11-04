@@ -1,0 +1,497 @@
+[
+  {
+    "slug": "secured-lines-of-credit",
+    "title": "Secured business lines of credit",
+    "description": "Borrow as needed against an approved limit, with business assets at risk.",
+    "category": "business-capital",
+    "illustration": "cash-flow",
+    "takeaway": "A secured line offers flexibility, but collateral and renewal terms matter as much as the limit.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>A secured business line of credit is a borrowing facility backed by specified assets. A lien is the lender’s legal claim against collateral. “Secured” describes that support; it does not mean approval is certain or repayment is risk-free. In these materials, SLOC means a secured business line of credit.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>An approved business can request draws up to its available limit. A revolving line generally restores borrowing room as principal is repaid, subject to the agreement. Some facilities base availability on eligible receivables or inventory; availability can change as the collateral changes.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A business expecting an invoice payment next month considers a temporary draw for supplies. It still needs to check the customer’s payment risk and the line’s repayment date.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A business with recurring timing gaps and an identifiable repayment source may find a line useful. It can be a poor fit for permanent operating losses or a project that needs years to produce cash. Compare an unsecured line or a term loan as well; each has its own requirements.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may assess operating history, revenue, cash flow, existing debt, credit, and the ownership, value, and quality of proposed collateral. Ask whether personal guarantees, financial reporting, inspections, or periodic renewal are required. No single minimum applies to every provider.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Interest, draw or annual fees, collateral reviews, and other charges may apply. Rates can be variable. Ask when interest and principal are due and whether a balance becomes payable at maturity. Default—failing to meet the agreement—can put pledged assets at risk; renewal or further draws may not be available.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Which assets are pledged, and is the lien limited or broad?</li><li>How is the available limit calculated and reviewed?</li><li>Can the provider reduce, freeze, or decline to renew the line?</li><li>What must be repaid at maturity, and what fees and guarantees apply?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.pnc.com/en/small-business/borrowing/business-lines-of-credit/secured-business-line-of-credit.html",
+        "PNC: Secured business lines of credit (provider example, not a Cornerstone partner claim)"
+      ],
+      [
+        "https://www.occ.gov/topics/supervision-and-examination/credit/commercial-credit/accounts-receivable.html",
+        "OCC: Accounts receivable and inventory financing"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "merchant-cash-advances",
+    "title": "Merchant cash advances",
+    "description": "Understand receipts-based financing, factor pricing, and collection pressure.",
+    "category": "business-capital",
+    "illustration": "cash-flow",
+    "takeaway": "An advance is not free cash, and a factor rate is not an APR.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>A merchant cash advance (MCA) generally provides upfront money in exchange for an agreed amount of future business receipts. Agreements are often structured as purchases of receivables rather than traditional loans. Read the actual contract; the label alone does not establish the economics or legal treatment.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>Collections may be a share of card sales or recurring bank withdrawals. A reconciliation process may adjust collections to actual receipts if the contract provides for it. Do not assume a fixed withdrawal automatically falls when sales slow.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A purely illustrative $10,000 advance at a 1.25 factor implies $12,500 before other charges. That arithmetic does not make the cost a 25% annual percentage rate (APR); collection timing still matters.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A business evaluating receipts-based financing needs dependable receipts and enough cash after collections to operate. Compare alternatives before using an advance for an uncertain startup, a long construction project, or a continuing loss. Access to funding is not the same as affordable funding.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may examine transaction history, bank statements, sales volatility, existing advances, industry, operating history, and owner credit or guarantees. Approval criteria differ. Ask what data and account access would be needed and who receives them.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Factor pricing states a multiplier, not an annualized interest rate. Additional fees and the timing of collections affect the true burden. Frequent withdrawals can crowd out payroll or rent. Ask about reconciliation, default terms, early payoff, and restrictions on other financing; obligations and guarantees depend on the agreement.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>What is the net cash received and complete purchased-receipts obligation?</li><li>Is collection fixed or sales-based, and how is reconciliation requested?</li><li>Does early payoff reduce the obligation?</li><li>What happens if receipts fall or another payment is missed?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.ftc.gov/business-guidance/blog/2020/02/small-business-financing-staff-perspective-outlines-issues",
+        "FTC: Small business financing concerns"
+      ],
+      [
+        "https://www.consumerfinance.gov/compliance/compliance-resources/small-business-lending-resources/small-business-lending-collection-and-reporting-requirements/small-business-lending-rule-faqs/",
+        "CFPB: Small business lending FAQs"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "working-capital",
+    "title": "Working capital funding",
+    "description": "Understand the operating need before choosing a financing product.",
+    "category": "business-capital",
+    "illustration": "inventory",
+    "takeaway": "Working capital describes a business need—not one specific funding product.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Working capital is commonly current assets minus current liabilities: resources expected to turn into cash within a year, less obligations due within that period. In financing conversations it often means money for everyday operations: payroll, supplies, inventory, or a gap before customers pay. A credit line, loan, or other arrangement can serve that purpose but work very differently.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>Map when customer cash is expected and when bills are due. Then compare a funding structure with that operating cycle. A short gap differs from a long-term investment. Funding adds its own payment schedule rather than removing the original expense.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A supplier needs payment before a customer invoice is due. Put both dates, a possible late payment, and financing collections on one calendar.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A temporary, explainable timing gap may support a different decision from recurring losses. Consider collecting invoices sooner, changing supplier terms, reducing the order, or waiting alongside borrowing. Those alternatives can also have business costs or tradeoffs.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may review cash receipts, expenses, operating history, debt commitments, industry, and credit or collateral depending on the product. Current records help distinguish earned revenue from projections and overdue receivables from collected cash.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Interest, fees, payment frequency, and guarantees depend on the underlying product. Borrowing to cover each month’s ordinary shortfall can make the next shortfall larger. Test a slower-sales period and include taxes, owner withdrawals, and existing payments in the forecast.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>What exactly creates the cash gap, and when should it close?</li><li>Will collections arrive before funding payments begin?</li><li>How much cash remains after all obligations?</li><li>Is there a smaller or non-borrowing way to meet the need?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.fdic.gov/consumer-resource-center/money-smart-small-business",
+        "FDIC: Money Smart for Small Business"
+      ],
+      ["https://www.sba.gov/loans/7a-loans/", "SBA: 7(a) loans"]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "equipment-financing",
+    "title": "Equipment financing",
+    "description": "Compare borrowing for equipment with leasing its use.",
+    "category": "equipment",
+    "illustration": "equipment",
+    "takeaway": "The full cost includes ownership, upkeep, and end-of-term obligations—not just the payment.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Equipment financing helps acquire eligible business equipment. A loan typically finances a purchase; a lease provides use under its agreement. Ownership, buyout rights, and obligations differ. Do not assume every lease leads to ownership.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>A provider reviews the equipment and business, then specifies the amount financed, payment schedule, security, and any end-of-term requirements. The equipment may secure the obligation. Delivery, installation, maintenance, insurance, and taxes can sit outside the advertised payment.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>Before financing a kitchen appliance, a restaurant compares the equipment quote with installation, electrical work, maintenance, and a quieter-than-expected month.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A business with a defined asset need and a realistic plan to use it may compare financing with cash purchase, leasing, rental, or used equipment. Consider how long the asset should remain useful and whether demand justifies it.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may examine cash flow, credit, time operating, equipment age and resale value, a vendor quote, down payment or owner contribution, and guarantees. Specialized or rapidly obsolete assets can be assessed differently from readily resold equipment.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Compare interest, fees, payment frequency, total payments, insurance, and buyout or return conditions. The debt can outlast the equipment’s usefulness. A missed obligation can put the equipment or other pledged assets at risk. Confirm whether paying early changes the total cost.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Who owns the equipment during and after the agreement?</li><li>What delivery, maintenance, insurance, and tax costs are excluded?</li><li>What happens if the equipment fails or becomes obsolete?</li><li>Is there a final buyout, residual payment, or return charge?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.pnc.com/en/corporate-and-institutional/financing/lending-options/pnc-equipment-finance/smaller-businesses-pnc-equipment-finance.html",
+        "PNC: Equipment loans and leases (provider example, not a Cornerstone partner claim)"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "real-estate-investment",
+    "title": "Real estate investment financing",
+    "description": "Understand property-backed financing and the source of repayment.",
+    "category": "property-projects",
+    "illustration": "expansion",
+    "takeaway": "The property’s income or exit plan must support the obligation—not just its projected value.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Real estate investment financing supports property held for rental income, resale, or another investment purpose. It differs from financing a home someone intends to occupy. A purchase, a stabilized rental, and a renovation can require different structures.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>The lender generally evaluates the borrower and property, secures the financing against the property, and sets payment and maturity terms. Depending on the transaction, repayment may rely on rents, business cash flow, sale proceeds, or refinancing. A refinance is a new credit decision, not a guaranteed exit.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>For a hypothetical rental, compare expected rent with vacancy, repairs, taxes, insurance, and debt payments—not with the debt payment alone.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>Investors with a defined property strategy, documented costs, and reserves may compare property financing with additional equity or a smaller acquisition. It can be unsuitable when the plan relies on uninterrupted occupancy or an optimistic sale price.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Common review areas include property value and condition, rents and leases, expenses, borrower credit and liquidity, experience, existing liens, and owner equity. LTV—loan-to-value—compares the loan with the property valuation; it is not the same as cash needed at closing.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Budget for interest, lender and closing fees, valuation, insurance, taxes, and reserves. Some agreements have variable rates, prepayment charges, or a large balance due at maturity. Vacancy, repairs, falling values, and refinancing changes can reduce the margin for repayment. Default can put the property at risk.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>What valuation and income assumptions support the amount?</li><li>Is the loan fully repaid over time, or is a balloon balance due?</li><li>What happens if rent or sale proceeds fall short?</li><li>What cash contribution, reserves, and guarantees are required?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.occ.gov/publications-and-resources/publications/comptrollers-handbook/files/commercial-real-estate-lending/index-commercial-real-estate-lending.html",
+        "OCC: Commercial real estate lending"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "fix-and-flip",
+    "title": "Fix-and-flip financing",
+    "description": "Plan for purchase, renovation draws, and a realistic sale or refinance.",
+    "category": "property-projects",
+    "illustration": "equipment",
+    "takeaway": "A renovation budget and exit plan need room for delays and overruns.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Fix-and-flip financing generally supports buying and renovating an investment property for resale. It is often short-term and property-secured. It is not automatically appropriate for an owner-occupied home or a project with no clear repayment exit.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>Funding may include an initial purchase advance and later renovation draws. A draw is a release of funds for a project stage, often after documentation or inspection. Ask whether costs must be paid first and reimbursed later; the arrangement can require cash before the next draw arrives.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A project planned for three months should also test a longer permit process and a lower sale price. That is a stress test, not a prediction.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>An investor with a defined renovation scope, capable contractors, contingency funds, and a supported resale plan may consider it. Compare a less extensive project or additional equity if the plan only works with an immediate sale.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>A provider may assess purchase price, current and expected finished value, renovation scope, permits, contractor capacity, borrower experience, liquidity, credit, and the exit strategy. ARV means after-repair value: an estimate, not a promised sale price.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Interest, origination or “points,” inspections, draw fees, extensions, and closing costs can add up. A point is generally one percent of the loan amount; ask which amount the provider uses. Delays, contractor issues, overestimated resale value, and a missed maturity date can threaten the project and pledged property.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Is renovation funding advanced or reimbursed after work?</li><li>Is interest charged on drawn funds or another balance?</li><li>What happens if the sale is delayed or the budget increases?</li><li>What extension conditions, fees, and guarantees apply?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://lendingone.com/resources/faqs/",
+        "LendingOne: Renovation financing mechanics (provider example, not a Cornerstone partner claim)"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "new-construction",
+    "title": "New construction financing",
+    "description": "Follow how staged funding, project risk, and the final repayment plan fit together.",
+    "category": "property-projects",
+    "illustration": "expansion",
+    "takeaway": "Money is released in stages, while delays can keep adding cost.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>New construction financing helps fund a building project rather than a completed asset. Land acquisition, site work, and construction may be handled differently in the agreement. The final property value depends on successful completion.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>A project budget and draw schedule guide staged disbursements. Inspections and evidence of completed work can precede releases. The loan may end with a sale, repayment from other funds, or a separate permanent loan. Do not assume that construction financing automatically converts to long-term financing.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A builder compares an on-schedule budget with a delayed completion. Extra interest and insurance must be funded even if no new work is being completed.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A borrower with a feasible project, prepared team, documented plans, and enough liquidity for gaps and contingencies may explore it. A project without approvals, reliable costs, or a supported exit needs more planning first.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may review land ownership and liens, zoning and permits, plans, budget, builder experience, contracts, feasibility, borrower finances, equity, and projected completed value. Requirements are project- and provider-specific; collateral value is created as work progresses.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Consider interest, commitment and draw fees, inspections, insurance, extensions, and the costs of unused or delayed funds under the contract. Overruns, material changes, weather, incomplete work, and an unavailable replacement loan to repay the construction balance can create a funding gap. The property and any guarantees can be at risk.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Which conditions must be met before each draw?</li><li>Who covers an overrun or an amount withheld from a draw?</li><li>What is the repayment plan if completion or sale is late?</li><li>Is permanent financing committed separately, and on what conditions?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://publishedguides.ncua.gov/examiner/Content/ExaminersGuide/Commercial%26MBL/CandD_Loans.htm",
+        "NCUA: Construction and development loans"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "startup-funding",
+    "title": "Startup funding",
+    "description": "Compare borrowing, owner funds, and outside investment before opening.",
+    "category": "startup-and-industry",
+    "illustration": "inquire",
+    "takeaway": "Without operating history, assumptions and owner risk deserve extra attention.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Startup funding supports a new business before or during its early operations. It is a stage of business, not one loan product. Potential paths include owner funds, investors, and credit where available; grants are limited to specific programs and are not a universal source of startup cash.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>Build a startup budget, separate one-time setup expenses from continuing costs, and estimate when customer cash might arrive. Debt requires repayment; equity investment gives someone an ownership interest and may change control. Self-funding concentrates risk in the owner’s resources.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A prospective owner separates equipment and deposits from rent, payroll, and supplies needed before sales stabilize. The opening-day budget alone does not show the whole funding need.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A new venture with tested demand, realistic costs, and a way to withstand slower sales may compare several paths. A smaller launch or more validation may be preferable if borrowing would depend on immediate, unproven revenue.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers or investors may examine the business plan, owner credit or contribution, relevant experience, existing resources, forecasts, and collateral or guarantees. Forecasts must be labeled as forecasts. A startup is not automatically eligible for a program because it is described online.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Borrowing costs and schedules vary; repayment can start before the business is profitable. Guarantees can expose the owner personally. Investor funding trades ownership and potentially decision rights for capital. Review documentation with appropriate professional help, and avoid “guaranteed startup funding” claims.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Which figures are actual results and which are assumptions?</li><li>What happens if opening or sales are delayed?</li><li>What personal assets or ownership rights are at stake?</li><li>Would a smaller launch reduce the funding need?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://legacy.sba.gov/business-guide/plan-your-business/fund-your-business",
+        "SBA: Fund your business"
+      ],
+      ["https://www.sba.gov/loans/microloans/", "SBA: Microloans"]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "restaurant-funding",
+    "title": "Restaurant funding",
+    "description": "Match the financing structure to your operation, seasonality, and margins.",
+    "category": "startup-and-industry",
+    "illustration": "expansion",
+    "takeaway": "A restaurant’s daily sales do not equal the cash it can safely commit to payments.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Restaurant funding describes financing for an industry, not a single product. A new opening, kitchen equipment purchase, seasonal inventory order, and second location have different needs. Available structures depend on the provider and the business.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>Start with the specific expense and the timing of the benefit. Equipment borrowing or leasing, an operating credit line, or a term loan can have different cash demands. An MCA ties collections to receipts under its contract and needs separate cost scrutiny. This is a comparison framework, not a list of Cornerstone programs.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A busy restaurant tests a lower-sales month after food, labor, rent, and existing debt. It compares the new payment with cash remaining, not with gross receipts.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>An established restaurant with documented cash flow may approach a purchase differently from a pre-opening location. Compare postponing a nonessential remodel, renting equipment, or phasing expansion alongside taking on a new obligation.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Providers may review bank and processor records, operating history, food and labor costs, lease terms, existing obligations, credit, experience, owner investment, and permits or opening plans where relevant. No universal restaurant approval threshold is stated here.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Compare total fees and repayment frequency with payroll, rent, supplier bills, delivery-platform charges, and quieter periods. Spoilage, repairs, seasonality, and a delayed opening can erode expected cash. Guarantees and collateral requirements vary. Frequent collections can put pressure on a business even when sales look healthy.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Is the need temporary cash flow, equipment, opening costs, or expansion?</li><li>Does the schedule still fit a slower trading period?</li><li>How do all current financing payments interact?</li><li>What obligations continue if the location closes or changes hands?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      ["https://www.sba.gov/loans/7a-loans/", "SBA: 7(a) loans"],
+      [
+        "https://www.fdic.gov/consumer-resource-center/money-smart-small-business",
+        "FDIC: Money Smart for Small Business"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  },
+  {
+    "slug": "invoice-factoring",
+    "title": "Invoice factoring",
+    "description": "Understand selling invoices, collection responsibility, and customer risk.",
+    "category": "business-capital",
+    "illustration": "inventory",
+    "takeaway": "Selling an invoice can bring cash forward, but fees and nonpayment terms matter.",
+    "sections": [
+      {
+        "id": "what",
+        "title": "What it is",
+        "body": "<p>Invoice factoring generally means selling eligible unpaid customer invoices to a factor at a discount. It differs from borrowing against invoices while keeping them as collateral. Confirm the actual structure rather than treating “factoring” and “invoice financing” as interchangeable.</p>"
+      },
+      {
+        "id": "how",
+        "title": "How it works",
+        "body": "<p>A factor reviews invoices and customers, advances an agreed portion, and handles settlement under the agreement. The factor may collect from customers directly. A reserve is an amount held back until settlement; its release and any deductions depend on the contract.</p><div class=\"example\"><strong>Illustration only—not an offer</strong><p>A business compares receiving less cash earlier with waiting for its customer. It asks what would happen if the invoice were disputed, not just if payment arrived on time.</p></div>"
+      },
+      {
+        "id": "fit",
+        "title": "When it may fit",
+        "body": "<p>A business with completed work, eligible business-to-business invoices, and a timing gap before reliable customers pay may explore it. It does not solve a lack of sales, disputed work, or invoices that a factor will not accept.</p>"
+      },
+      {
+        "id": "qualifications",
+        "title": "What providers may review",
+        "body": "<p>Review may include customer credit, invoice age and validity, disputes, concentration in a few customers, existing liens, and documentation of completed work. Confirm whether existing financing limits the ability to sell or pledge the invoices.</p>"
+      },
+      {
+        "id": "costs-and-risks",
+        "title": "Costs, repayment & risks",
+        "body": "<p>Fees may increase with the time an invoice remains unpaid. Under recourse arrangements, the business may need to repurchase or replace an unpaid invoice; nonrecourse protection can be limited to specified events. Customer notification, collections, minimum volume, termination fees, and guarantees also matter.</p>"
+      },
+      {
+        "id": "questions",
+        "title": "Questions to ask",
+        "body": "<ul><li>Who tells and collects from the customer?</li><li>When does the fee increase and the reserve get released?</li><li>Who bears a dispute, late payment, or customer failure?</li><li>Are there minimum volumes, liens, or exit charges?</li></ul><p>Compare any proposal with the <a href=\"/resources/comparing-funding-costs/\">cost guide</a> and <a href=\"/resources/cash-flow-and-repayment/\">cash-flow walkthrough</a> before deciding.</p>"
+      }
+    ],
+    "sources": [
+      [
+        "https://www.fundthrough.com/invoice-factoring-guide/",
+        "FundThrough: Invoice factoring mechanics (provider example, not a Cornerstone partner claim)"
+      ],
+      [
+        "https://www.occ.gov/topics/supervision-and-examination/credit/commercial-credit/accounts-receivable.html",
+        "OCC: Accounts receivable and inventory financing"
+      ]
+    ],
+    "updated": "2026-11-04",
+    "related": ["funding-basics", "comparing-funding-costs"]
+  }
+]

@@ -1,10 +1,15 @@
-# Publishing a guide
+# Publishing educational content
 
-1. Add a guide object to `guides.json`: a unique `slug`, title, description, illustration filename, `updated` date (YYYY-MM-DD), takeaway, sections (`id`, title, HTML body), and primary-source links.
-2. Use short paragraphs and useful examples. Explain risks, costs, and requirements alongside benefits. Label hypothetical numbers. Do not imply an educational product is a Cornerstone offering.
-3. Run `python3 scripts/build-resources.py` from the project folder. The script writes the homepage resource list, `/resources/`, individual guide pages, related reading, metadata, and sitemap.
-4. Review the generated pages at desktop and mobile sizes, check links, and publish through the existing Git-connected Cloudflare Pages project.
+- `guides.json`: foundational guides at `/resources/<slug>/`.
+- `topics.json`: educational funding topics at `/funding/<slug>/`, grouped by `category`.
+- `categories.json`: navigation and the four illustrated homepage entry points.
 
-Shared layout: `templates/page-head.html`, `templates/header.html`, `templates/footer.html`. Homepage content: `templates/home.html`. The existing inquiry is at `/inquiry/`; its form and API remain independent of resource generation. The current templates contain the static site's existing brand and legal notices.
+Each article has a unique slug, title, description, illustration filename, takeaway, sections (IDs, titles, repository-authored HTML), primary-source links, and actual `updated` date. Funding topics cover definition, mechanics, suitability, qualification factors, costs/repayment/risks, and questions. `related` may list other article slugs.
 
-When updating a guide, update its actual `updated` date in the content file. Do not run a formatter on the partial page-head template; format the generated complete pages instead. Do not label content as professionally reviewed unless a reviewer has actually approved it. All section bodies are trusted, repository-authored HTML, not visitor input. No CMS or new dependencies are required.
+Run `python3 scripts/build-resources.py` to generate the homepage, resource hub, funding hub/category pages, articles, related reading, metadata, and sitemap. Format generated complete pages if needed; do not run an HTML formatter on the partial page-head template.
+
+Shared chrome lives in `templates/header.html` and `templates/footer.html`; homepage content lives in `templates/home.html`. The optional three-step inquiry lives independently at `/inquiry/`. Keep the full legal name, Cornerstone Life Group LLC, in identity and disclosures; Business Funding Solutions is the descriptor.
+
+Educational coverage is not program availability. Do not add provider logos, relationship claims, eligibility cutoffs, pricing, guarantees, or credentials without confirmation. SLOC has been confirmed by the site owner to mean secured line of credit; it does not mean a securities-backed investment-account line here.
+
+Client examples require verified supporting facts and explicit consent before publication. Draft case studies and sensitive source material belong outside this repository: Cloudflare publishes this root directory. No case-study draft or credit report should be placed under a public, hidden, or unlinked site path. There are currently no approved published client examples.

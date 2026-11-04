@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "business-capital",
+    "title": "Business cash flow",
+    "description": "Credit lines, advances, and invoice-based funding.",
+    "illustration": "cash-flow"
+  },
+  {
+    "slug": "equipment",
+    "title": "Equipment & assets",
+    "description": "Understand buying, borrowing, and leasing.",
+    "illustration": "equipment"
+  },
+  {
+    "slug": "property-projects",
+    "title": "Property projects",
+    "description": "Investment, renovation, and construction.",
+    "illustration": "expansion"
+  },
+  {
+    "slug": "startup-and-industry",
+    "title": "Starting & growing",
+    "description": "Startup and restaurant funding considerations.",
+    "illustration": "inquire"
+  }
+]

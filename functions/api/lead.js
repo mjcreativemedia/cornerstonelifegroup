@@ -212,7 +212,7 @@ async function sendLeadEmail(payload, env) {
     body: JSON.stringify({
       from:
         env.RESEND_FROM_EMAIL ||
-        "Cornerstone Life Group <onboarding@resend.dev>",
+        "Cornerstone Life Group LLC <onboarding@resend.dev>",
       to: [LEAD_RECIPIENT],
       subject,
       text,
@@ -265,8 +265,8 @@ function buildLeadEmailText(payload) {
   }
   const isEnrichment = payload.submission_type === "enrichment";
   const heading = isEnrichment
-    ? "Cornerstone Life Group lead update"
-    : "New Cornerstone Life Group lead";
+    ? "Cornerstone Life Group LLC lead update"
+    : "New Cornerstone Life Group LLC lead";
   const answerLines = isEnrichment
     ? [
         `- Preferred contact: ${formatValue(payload.contactPreference)}`,

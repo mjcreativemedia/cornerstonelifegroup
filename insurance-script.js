@@ -21,12 +21,12 @@ const trackingFields = getTrackingFields();
 
 const modalContent = {
   about: {
-    title: "About Cornerstone Life Group",
+    title: "About Cornerstone Life Group LLC",
     body: `
-      <p>Cornerstone Life Group provides assistance with final expense and life insurance coverage options. Requests submitted through this website are reviewed so that available options may be discussed based on the information provided.</p>
+      <p>Cornerstone Life Group LLC provides assistance with final expense and life insurance coverage options. Requests submitted through this website are reviewed so that available options may be discussed based on the information provided.</p>
       <p>Carlos Vasquez reviews requests and may contact you by phone or text to discuss coverage options, answer questions, and help determine whether a policy may fit your needs.</p>
       <p>For immediate questions, call or text <strong>312-287-4144</strong>.</p>
-      <p class="legal-disclaimer">Coverage options, eligibility, rates, and product availability vary by carrier, underwriting, and state approval. Cornerstone Life Group currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois.</p>
+      <p class="legal-disclaimer">Coverage options, eligibility, rates, and product availability vary by carrier, underwriting, and state approval. Cornerstone Life Group LLC currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois.</p>
     `,
   },
   privacy: {
@@ -49,13 +49,13 @@ const modalContent = {
       <h3>No Obligation</h3>
       <p>Submitting information through this website does not require you to purchase insurance or enroll in any product. Coverage is not guaranteed.</p>
       <h3>Phone And Text Consent</h3>
-      <p>By submitting your information, you agree that Cornerstone Life Group and/or Carlos Vasquez may call or text you at the number provided about final expense and life insurance options. Consent is not required to purchase. Message and data rates may apply. Reply STOP to opt out of text messages.</p>
+      <p>By submitting your information, you agree that Cornerstone Life Group LLC and/or Carlos Vasquez may call or text you at the number provided about final expense and life insurance options. Consent is not required to purchase. Message and data rates may apply. Reply STOP to opt out of text messages.</p>
       <h3>Coverage Availability</h3>
       <p>Quotes, eligibility, rates, benefits, and coverage are subject to carrier underwriting, product availability, state availability, and final approval. Any examples or options discussed are not guarantees of coverage.</p>
       <h3>Government Affiliation</h3>
-      <p>Cornerstone Life Group is not affiliated with Medicare, Social Security, or any government agency.</p>
+      <p>Cornerstone Life Group LLC is not affiliated with Medicare, Social Security, or any government agency.</p>
       <h3>Licensed Service States</h3>
-      <p>Cornerstone Life Group currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois. Product availability may vary by state and carrier.</p>
+      <p>Cornerstone Life Group LLC currently serves Michigan, Texas, Virginia, North Carolina, Florida, and Illinois. Product availability may vary by state and carrier.</p>
     `,
   },
 };
